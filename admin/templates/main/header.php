@@ -49,7 +49,11 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 
 <header>
 
-    <div class="header-top-wrapper">
+    <div class="header">
+
+    </div>
+
+    <!--div class="header-top-wrapper">
 
         <div class="header-top">
 
@@ -147,7 +151,7 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 
         </div>
 
-    </div>
+    </div-->
 
 </header>
 

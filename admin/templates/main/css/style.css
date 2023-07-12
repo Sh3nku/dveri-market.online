@@ -433,7 +433,7 @@ textarea.grey:focus {
 
 /* ------ Шапка ------ */
 
-header {
+/*header {
     background-color: #F4F7FB;
 }
 
@@ -625,7 +625,7 @@ header.fixed .header-top {
     font-size: 12px;
     line-height: 14px;
 }
-
+*/
 /* ------ Тело ------ */
 
 main {
