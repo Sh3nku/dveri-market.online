@@ -53,14 +53,6 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 
         <div class="header-top">
 
-            <div class="show-aside">
-
-                <span class="show-aside-line"></span>
-                <span class="show-aside-line"></span>
-                <span class="show-aside-line"></span>
-
-            </div>
-
             <div class="button small js-get-call-form">Заказать звонок</div>
 
             <div class="header-top-phone"><a class="_underline" href="tel:+79817180108">+7 981 718-01-08</a></div>
@@ -161,7 +153,7 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 
 <?//if ( $_SESSION['user']['id'] == 1 ) $Functions -> Pre( $_SERVER )?>
 
-<main>
+<main class="text-content">
 
     <?if ( $_SERVER['PHP_SELF'] !== '/index.php' ) {?>
         <div class="container">
