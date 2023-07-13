@@ -45,12 +45,37 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 
 <body class="js-body-no-transition">
 
-<?if ( $User -> IsAuthorized() ) $Includes::Panel()?>
+<?//if ( $User -> IsAuthorized() ) $Includes::Panel()?>
 
 <header>
 
-    <div class="header">
+    <div class="container">
+        <div class="header">
+            <div class="header__left">
+                <a class="header__logo" href="/">
+                    <img src="<?=TPL?>/images/logo.png">
+                </a>
 
+                <button class="header__search-button button _transperent _with-icon | js-search-button">
+                    <svg class="_icon-search">
+                        <use xlink:href="<?=TPL?>/images/icons/search.svg#search"></use>
+                    </svg>
+                    <span>Поиск</span>
+                </button>
+
+                <button class="button _with-icon | js-catalog-button">
+                    <div class="button__icon">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span>Каталог</span>
+                </button>
+            </div>
+
+            <div class="header__right">
+                <button class="button _black">Заказать звонок</button>
+            </div>
+        </div>
     </div>
 
     <!--div class="header-top-wrapper">
@@ -154,6 +179,65 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
     </div-->
 
 </header>
+
+<nav class="menu">
+    <div class="container">
+        <div class="menu__main">
+            <div class="menu__first-level">
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+                <p>Основные пункты меню</p>
+            </div>
+        </div>
+        <div class="menu__second">
+            <h3>Межкомнатные двери</h3>
+            <p>Подпункты</p>
+        </div>
+    </div>
+</nav>
 
 <?//if ( $_SESSION['user']['id'] == 1 ) $Functions -> Pre( $_SERVER )?>
 

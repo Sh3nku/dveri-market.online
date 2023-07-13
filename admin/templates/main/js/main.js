@@ -250,36 +250,81 @@ $( function () {
 
         $( this ).text( ( ( open ) ? 'Показать' : 'Скрыть' ) );
 
-    })
+    });
+
+    $( '.js-search-button' ).on( 'click', function () {
+
+        let body = $( 'body' );
+
+        if ( body.hasClass( '_search-open' ) ) {
+            body.removeClass( '_search-open _overflow-hidden' );
+        } else {
+            body.addClass( '_search-open _overflow-hidden' );
+            $( '.search-popu__input' ).trigger( 'focus' )
+        }
+
+    });
+
+    $( '.js-search-popup-close' ).on( 'click', function () {
+        $( '.js-search-button' ).trigger( 'click' )
+    });
+
+    $( '.js-catalog-button' ).on( 'click', function () {
+
+        let body = $( 'body' );
+
+        if ( body.hasClass( '_catalog-open' ) ) {
+            body.removeClass( '_catalog-open _overflow-hidden' );
+        } else {
+            body.addClass( '_catalog-open _overflow-hidden' );
+        }
+
+    });
+
+    $( document ).on( 'mouseup', function ( e ) {
+
+        if (
+            $( 'body' ).hasClass( '_catalog-open' )
+            && !$( e.target ).closest( '.menu' ).length
+            && !$( e.target ).is( '.menu' )
+            && !$( e.target ).closest( '.js-catalog-button' ).length
+            && !$( e.target ).is( '.js-catalog-button' )
+        ) {
+            $( '.js-catalog-button' ).trigger( 'click' )
+        }
+
+        if (
+            $( 'body' ).hasClass( '_search-open' )
+            && !$( e.target ).closest( '.search-popup' ).length
+            && !$( e.target ).is( '.search-popup' )
+        ) {
+            $( '.js-search-button' ).trigger( 'click' )
+        }
+
+    });
+
+    let lastscrolltop = 0;
+
+    $( window ).on( 'scroll', function () {
+
+        if ( $( 'body' ).hasClass( '_catalog-open' ) ) return false;
+
+        if ( $( window ).scrollTop() > lastscrolltop && $( window ).scrollTop() > 0 ) {
+            $( 'header' ).addClass( '_hidden' );
+        } else {
+            $( 'header' ).removeClass( '_hidden' );
+        }
+
+        lastscrolltop = $( window ).scrollTop();
+
+    });
 
 })
 
 $( document ).on( 'focus', '.errors-item', function () {
-
     $( this ).removeClass( 'errors-item' ).next( 'span' ).remove();
-
 });
 
 $( window ).one( 'load', function() {
-
     $( 'body' ).removeClass( 'js-body-no-transition' );
-
-});
-
-$( window ).on( 'resize scroll load', function () {
-
-    let d = $( this ).scrollTop(),
-        w = $( 'header' ),
-        h = w.offset().top;
-
-    if ( ( d > h ) && !w.hasClass( 'fixed' ) ) {
-
-        w.addClass( 'fixed' )
-
-    } else if ( ( d <= h ) && w.hasClass( 'fixed' ) ) {
-
-        w.removeClass( 'fixed' )
-
-    }
-
 });

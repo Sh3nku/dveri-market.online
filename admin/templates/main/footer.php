@@ -47,6 +47,23 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/87597326" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
+    <div class="body-overlay"></div>
+    <div class="search-popup">
+        <div class="container">
+            <form class="search-popup__form">
+                <svg class="_icon-search">
+                    <use xlink:href="<?=TPL?>/images/icons/search.svg#search"></use>
+                </svg>
+
+                <input type="text" class="search-popu__input" placeholder="Поиск по сайту">
+
+                <svg class="_icon-close | js-search-popup-close">
+                    <use xlink:href="<?=TPL?>/images/icons/close.svg#close"></use>
+                </svg>
+            </form>
+        </div>
+    </div>
+
 </body>
 
 </html>

@@ -55,6 +55,23 @@ img,
 textarea {
     vertical-align: top;
     max-width: 100%;
+    height: auto;
+}
+
+input, textarea, button, select {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button, input[type=submit] {
+    display: inline-block;
+    box-shadow: none;
+    cursor: pointer;
 }
 
 body {
@@ -70,6 +87,29 @@ body {
     margin: 0 auto;
     min-width: 360px;
     overflow-x: hidden;
+}
+
+body._overflow-hidden {
+    overflow: hidden;
+    padding-right: 17px;
+}
+
+.body-overlay {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background: rgba( 24, 24, 24, .80 );
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+._search-open .body-overlay {
+    opacity: 1;
+    visibility: visible;
 }
 
 .js-body-no-transition * {
@@ -125,17 +165,6 @@ a {
     background-size: 100% 1px;
 }
 
-#progress {
-    position: fixed;
-    z-index: 1005;
-    top: 0;
-    left: -6px;
-    width: 0.01%;
-    height: 3px;
-    background-color: #f4b84c;
-    transition: width 500ms ease-out, opacity 400ms linear;
-}
-
 .rub {
     position: relative;
 }
@@ -156,13 +185,16 @@ a {
     bottom: 8px;
 }
 
+/* ----- Buttons ----- */
+
 .button {
     font-family: inherit;
     background-color: #f4b84c;
-    padding: 15px;
+    padding: 13px 15px;
     display: inline-flex;
+    align-items: center;
     font-size: 16px;
-    line-height: 20px;
+    line-height: 24px;
     cursor: pointer;
     outline: 0;
     font-weight: 700;
@@ -171,11 +203,60 @@ a {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    transition: background-color .3s ease;
 }
 
 .button:hover {
     background-color: #DCA33B;
-    transition: background-color .3s;
+}
+
+.button._with-icon {
+    padding: 13px 35px;
+}
+.button._with-icon > svg {
+    margin-right: 10px;
+}
+.button._with-icon > .button__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.button._with-icon > .button__icon > span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #333333;
+    transition: width .3s ease, transform .3s ease;
+}
+.button._with-icon > .button__icon > span:first-child {
+    margin-bottom: 4px;
+    width: 14px;
+}
+._catalog-open .button._with-icon > .button__icon > span:first-child {
+    width: 18px;
+    transform: rotate( 45deg ) translate( 3px, 2px );
+}
+._catalog-open .button._with-icon > .button__icon > span:last-child {
+    transform: rotate( -45deg ) translate( 2px, -1px );
+}
+
+.button._transperent {
+    background-color: transparent;
+    padding: 0;
+}
+.button._transperent > span {
+    background-image: linear-gradient( rgba( 51, 51, 51 ), rgba( 51, 51, 51 ) );
+    background-repeat: no-repeat;
+    background-position: 0 95%;
+    background-size: 0 1px;
+    transition: background-size .3s ease;
+}
+.button._transperent:hover > span {
+    background-size: 100% 1px;
 }
 
 .button.loader {
@@ -191,10 +272,17 @@ a {
     padding: 13px;
     transition: border-color .5s, color .5s;
 }
-
 .button.white:hover {
     border: 2px solid var( --orange-hover );
     color: var( --orange-hover );
+}
+
+.button._black {
+    background-color: #0F0F0F;
+    color: #FFFFFF;
+}
+.button._black:hover {
+    background-color: #333333;
 }
 
 .button._grey {
@@ -233,6 +321,20 @@ a {
     margin-top: 8px;
     margin-left: 8px;
 }
+
+/* ----- Icons ----- */
+
+._icon-search {
+    width: 20px;
+    height: 20px;
+}
+._icon-close {
+    width: 16px;
+    height: 16px;
+    fill: #ADADAD;
+}
+
+/* ----- Checkbox & Radiobox ----- */
 
 .radiobox,
 .checkbox {
@@ -433,6 +535,47 @@ textarea.grey:focus {
 
 /* ------ Шапка ------ */
 
+header {
+    position: fixed;
+    z-index: 20;
+    width: 100%;
+    background: #FFF;
+    box-shadow: 0 0 25px 0 rgba( 0, 0, 0, .05 );
+    padding: 15px 0;
+    transition: transform .3s ease;
+}
+
+header._hidden {
+    transform: translateY(-100px);
+}
+
+._overflow-hidden header {
+    padding-right: 17px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    margin-right: 50px;
+}
+
+.header__logo > img {
+    height: 50px;
+}
+
+.header__search-button {
+    margin-right: 40px;
+}
+
 /*header {
     background-color: #F4F7FB;
 }
@@ -589,6 +732,101 @@ header.fixed .header-top {
 .header-basket:hover span {
     color: var( --orange );
 }
+*/
+
+/* ----- Порап поиска ----- */
+
+.search-popup {
+    position: fixed;
+    z-index: 25;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 25px 0 rgba( 0, 0, 0, .05 );
+    height: 100px;
+    transform: translateY( -130px );
+    transition: transform .3s ease;
+}
+
+._search-open .search-popup {
+    transform: translateY( 0 );
+}
+
+.search-popup__form {
+    display: flex;
+    align-items: center;
+    margin: 38px 0;
+}
+
+.search-popup__form > ._icon-search {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+}
+
+input[type=text].search-popu__input {
+    padding: 0;
+    font-size: 20px;
+    line-height: 24px;
+    border-radius: unset;
+}
+
+.search-popup__form > ._icon-close {
+    margin-left: 15px;
+    cursor: pointer;
+    transition: fill .3s ease;
+}
+
+.search-popup__form > ._icon-close:hover {
+    fill: #0F0F0F;
+}
+
+/* ----- Catalog menu ----- */
+
+.menu {
+    position: fixed;
+    z-index: 20;
+    width: 100%;
+    margin-top: 80px;
+    background-color: #FFFFFF;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY( -10px );
+    transition:
+        opacity .3s ease,
+        visibility .3s ease,
+        transform .3s ease;
+    padding: 20px 0;
+    box-shadow: 0 20px 25px 0 rgba( 0, 0, 0, .05 );
+    max-height: calc( 100% - 80px );
+}
+
+.menu > .container {
+    display: flex;
+}
+
+._catalog-open .menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY( 0 );
+}
+
+.menu__main {
+    flex: 0 0 300px;
+    padding: 12px 20px 12px 0;
+    border-right: 1px solid #E8E8E8;
+    margin-right: 32px;
+}
+
+.menu__first-level {
+    max-height: calc( 100vh - 144px );
+    overflow-y: auto;
+}
+
+.menu__second {
+
+}
+
+/* ----- Формы ----- */
 
 .form-wrapper {
     padding: 32px;
@@ -625,11 +863,18 @@ header.fixed .header-top {
     font-size: 12px;
     line-height: 14px;
 }
-*/
+
 /* ------ Тело ------ */
 
 main {
     flex-grow: 1;
+    margin-top: 120px;
+}
+
+@media ( max-width: 767px ) {
+    main {
+        margin-top: 85px;
+    }
 }
 
 .text-content p:not( :last-child ) {
@@ -796,7 +1041,7 @@ main ul li:before {
 }
 
 .slider {
-    margin-bottom: 64px;
+    margin: -40px 0 64px;
 }
 
 .slide {
