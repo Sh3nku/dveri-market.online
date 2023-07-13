@@ -63,8 +63,9 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
                     <span>Поиск</span>
                 </button>
 
-                <button class="button _with-icon | js-catalog-button">
+                <button class="header__catalog-button button _with-icon | js-catalog-button">
                     <div class="button__icon">
+                        <span></span>
                         <span></span>
                         <span></span>
                     </div>
@@ -102,6 +103,12 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
                 <a class="header__phone _underline" href="tel:+79817180108">+7 981 718-01-08</a>
 
                 <button class="header__call-button button _black | js-get-call-form">Заказать звонок</button>
+
+                <div class="header__call-button__mobile | js-get-call-form">
+                    <svg class="_icon-phone">
+                        <use xlink:href="<?=TPL?>/images/icons/phone.svg#phone"></use>
+                    </svg>
+                </div>
 
                 <?$basket_count = 0;
 
@@ -154,34 +161,6 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
                 'type' => 'top'
             )
         )?>
-
-        <div class="header-right">
-
-            <div class="header-auth <?=( ( !$User -> IsAuthorized() ) ? 'js-auth' : '' )?>">
-
-                <?if ( $User -> IsAuthorized() ) {
-
-                    $arResUser = $User -> GetList( array(), array( 'id' => $_SESSION['user']['id'] ) );
-                    $arUser = $arResUser['items'][0]?>
-
-                    <div class="profile-wrapper">
-                        <a href="/profile/" class="_underline"><?=$arUser['email']?></a>
-                        <span class="js-exit _underline">выход</span>
-                    </div>
-
-                <?} else {?>
-
-                    <div class="header-enter">
-                        <svg>
-                            <use xlink:href="<?=TPL?>/images/enter.svg#icon-enter"></use>
-                        </svg>
-                    </div>
-
-                <?}?>
-
-            </div>
-
-        </div>
 
     </div-->
 

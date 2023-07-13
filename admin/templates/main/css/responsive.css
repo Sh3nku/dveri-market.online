@@ -599,15 +599,9 @@
 }
 
 @media ( max-width: 550px ) {
-
-    .js-get-call-form {
-        display: none;
-    }
-
     .basket-price-piece {
         display: none;
     }
-
 }
 
 @media ( max-width: 500px ) {

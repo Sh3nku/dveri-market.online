@@ -76,6 +76,8 @@ window.onpopstate = function() {
 
 $( function () {
 
+    let scrollWidth = window.innerWidth - document.documentElement.clientWidth;
+
     $( '.js-open-basket' ).on( 'click', function () {
 
         $.ajax({
@@ -252,13 +254,16 @@ $( function () {
 
     $( '.js-search-button' ).on( 'click', function () {
 
-        let body = $( 'body' );
+        let body = $( 'body' ),
+            header = $( 'header' );
 
         if ( body.hasClass( '_search-open' ) ) {
-            body.removeClass( '_search-open _overflow-hidden' );
+            body.removeClass( '_search-open _overflow-hidden' ).removeAttr( 'style' );
+            header.removeAttr( 'style' );
         } else {
-            body.addClass( '_search-open _overflow-hidden' );
-            $( '.search-popu__input' ).trigger( 'focus' )
+            body.addClass( '_search-open _overflow-hidden' ).css( 'padding-right', scrollWidth + 'px' );
+            header.css( 'padding-right', scrollWidth + 'px' );
+            $( '.search-popup__input' ).trigger( 'focus' )
         }
 
     });
@@ -269,12 +274,15 @@ $( function () {
 
     $( '.js-catalog-button' ).on( 'click', function () {
 
-        let body = $( 'body' );
+        let body = $( 'body' ),
+            header = $( 'header' );
 
         if ( body.hasClass( '_catalog-open' ) ) {
-            body.removeClass( '_catalog-open _overflow-hidden' );
+            body.removeClass( '_catalog-open _overflow-hidden' ).removeAttr( 'style' );
+            header.removeAttr( 'style' );
         } else {
-            body.addClass( '_catalog-open _overflow-hidden' );
+            body.addClass( '_catalog-open _overflow-hidden' ).css( 'padding-right', scrollWidth + 'px' );
+            header.css( 'padding-right', scrollWidth + 'px' );
         }
 
     });

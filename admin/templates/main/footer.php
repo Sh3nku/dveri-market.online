@@ -55,7 +55,7 @@
                     <use xlink:href="<?=TPL?>/images/icons/search.svg#search"></use>
                 </svg>
 
-                <input type="text" class="search-popu__input" placeholder="Поиск по сайту">
+                <input type="text" class="search-popup__input" placeholder="Поиск по сайту">
 
                 <svg class="_icon-close | js-search-popup-close">
                     <use xlink:href="<?=TPL?>/images/icons/close.svg#close"></use>
