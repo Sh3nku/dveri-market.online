@@ -73,40 +73,79 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
             </div>
 
             <div class="header__right">
-                <button class="button _black">Заказать звонок</button>
+                <div class="header__socials">
+                    <div class="header__socials-item">
+                        <a href="https://www.facebook.com/dveri.market.online" target="_blank">
+                            <svg class="_icon-social-fb">
+                                <use xlink:href="<?=TPL?>/images/icons/social-fb.svg#social-fb"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="header__socials-item">
+                        <a href="https://instagram.com/dveri_market.online" target="_blank">
+                            <svg class="_icon-social-insta">
+                                <use xlink:href="<?=TPL?>/images/icons/social-insta.svg#social-insta"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="header__socials-item">
+                        <a href="https://vk.com/dveri_market.online" target="_blank">
+                            <svg class="_icon-social-vk">
+                                <use xlink:href="<?=TPL?>/images/icons/social-vk.svg#social-vk"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <a class="header__phone _underline" href="tel:+79817180108">+7 981 718-01-08</a>
+
+                <button class="header__call-button button _black | js-get-call-form">Заказать звонок</button>
+
+                <?$basket_count = 0;
+
+                if ( !empty( $_COOKIE['basket'] ) ) {
+
+                    $Shop = new Shop();
+                    $basket_count = $Shop -> GetBasketCount(
+                        array('sum'),
+                        array(
+                            'cookie' => $_COOKIE['basket']
+                        ),
+                    );
+
+                }?>
+
+                <div class="header__basket | js-open-basket">
+                    <svg class="_icon-basket">
+                        <use xlink:href="<?=TPL?>/images/icons/basket.svg#basket"></use>
+                    </svg>
+                    <span class="js-basket-count"><?=$basket_count?></span>
+                </div>
+
+                <div class="header__profile">
+                    <?if ( $User -> IsAuthorized() ) {
+
+                        $arResUser = $User -> GetList( array(), array( 'id' => $_SESSION['user']['id'] ) );
+                        $user_name = explode( '@', $arResUser['items'][0]['email'] )[0]?>
+
+                        <a href="/profile/" class="header__profile-name _underline"><?=$user_name?></a>
+                        <div class="header__profile-exit _underline | js-exit">выход</div>
+
+                    <?} else {?>
+                        <div class="header__profile-auth">
+                            <svg class="_icon-enter | js-auth">
+                                <use xlink:href="<?=TPL?>/images/icons/enter.svg#enter"></use>
+                            </svg>
+                        </div>
+                    <?}?>
+                </div>
             </div>
         </div>
     </div>
 
-    <!--div class="header-top-wrapper">
-
-        <div class="header-top">
-
-            <div class="button small js-get-call-form">Заказать звонок</div>
-
-            <div class="header-top-phone"><a class="_underline" href="tel:+79817180108">+7 981 718-01-08</a></div>
-
-            <div class="header-top-socials">
-
-                <a class="header-top-social-a" href="https://instagram.com/dveri_market.online" target="_blank">
-                    <div class="header-top-social header-top-instagram"></div>
-                </a>
-
-                <a class="header-top-social-a" href="https://vk.com/dveri_market.online" target="_blank">
-                    <div class="header-top-social header-top-vk"></div>
-                </a>
-
-                <a class="header-top-social-a" href="https://www.facebook.com/dveri.market.online" target="_blank">
-                    <div class="header-top-social header-top-facebook"></div>
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="header">
+    <!--<div class="header">
 
         <?$Includes::Template(
             'main:menu',
@@ -139,38 +178,6 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
                     </div>
 
                 <?}?>
-
-            </div>
-
-            <div class="header-basket js-open-basket">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="28.256" height="27.5" viewBox="0 0 28.256 27.5">
-                    <g transform="translate(0 -6.028)">
-                        <g transform="translate(0 6.028)">
-                            <g transform="translate(0 0)">
-                                <path d="M99.6,350.322a2.95,2.95,0,1,0,2.95,2.95A2.95,2.95,0,0,0,99.6,350.322Zm0,4.589a1.639,1.639,0,1,1,1.639-1.639A1.639,1.639,0,0,1,99.6,354.911Z" transform="translate(-90.589 -328.722)" />
-                                <path d="M298.134,350.322a2.95,2.95,0,1,0,2.95,2.95A2.95,2.95,0,0,0,298.134,350.322Zm0,4.589a1.639,1.639,0,1,1,1.639-1.639A1.639,1.639,0,0,1,298.134,354.911Z" transform="translate(-276.665 -328.722)" />
-                                <path d="M28.123,10.42a.82.82,0,0,0-.524-.262L6.26,9.863l-.59-1.8A3.016,3.016,0,0,0,2.852,6.028H.656a.656.656,0,0,0,0,1.311h2.2A1.7,1.7,0,0,1,4.425,8.486L8.588,21.04l-.328.754a3.147,3.147,0,0,0,.295,2.852,3.048,3.048,0,0,0,2.458,1.377h12.75a.656.656,0,1,0,0-1.311H11.013a1.672,1.672,0,0,1-1.377-.787,1.8,1.8,0,0,1-.164-1.573l.262-.59,13.8-1.442a3.606,3.606,0,0,0,3.114-2.753l1.573-6.588A.557.557,0,0,0,28.123,10.42Zm-2.753,6.85a2.229,2.229,0,0,1-2,1.737L9.735,20.417,6.687,11.174l20.092.295Z" transform="translate(0 -6.028)" />
-                            </g>
-                        </g>
-                    </g>
-                </svg>
-
-                <?$basket_count = 0;
-
-                if ( $_COOKIE['basket'] ) {
-
-                    $Shop = new Shop();
-                    $basket_count = $Shop -> GetBasketCount(
-                        array('sum'),
-                        array(
-                            'cookie' => $_COOKIE['basket']
-                        ),
-                    );
-
-                }?>
-
-                <span class="header-basket-count"><?=$basket_count?></span>
 
             </div>
 

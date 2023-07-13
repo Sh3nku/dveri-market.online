@@ -121,9 +121,7 @@ $( function () {
 
             success: function( data ) {
 
-                console.log( data );
-
-                $( '.header-basket-count' ).text( data );
+                $( '.js-basket-count' ).text( data );
                 $( '.js-open-basket' ).trigger( 'click' )
 
             }

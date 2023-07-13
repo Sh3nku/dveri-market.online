@@ -1,0 +1,51 @@
+.modal-overlay {
+    display: none;
+    background-color: rgba( 51, 51, 51, .8 );
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.modal {
+    min-width: 100px;
+    max-width: 1200px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba( 0, 0, 0, .4 );
+    opacity: 0;
+    position: absolute;
+    border-radius: 1px;
+    margin-bottom: 30px;
+}
+
+.modal-close {
+    background-color: #f4b84c;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -50px;
+    right: 0;
+    cursor: pointer;
+}
+
+.modal-close:before,
+.modal-close:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background-color: #fff;
+    width: 70%;
+    top: 19px;
+    left: 6px;
+}
+
+.modal-close:before {
+    transform: rotate( 45deg );
+}
+
+.modal-close:after {
+    transform: rotate( -45deg );
+}

@@ -333,6 +333,31 @@ a {
     height: 16px;
     fill: #ADADAD;
 }
+._icon-social-fb {
+    width: 32px;
+    height: 32px;
+    fill: #CBD3DC;
+}
+._icon-social-insta {
+    width: 32px;
+    height: 32px;
+    fill: #CBD3DC;
+}
+._icon-social-vk {
+    width: 32px;
+    height: 32px;
+    fill: #CBD3DC;
+}
+._icon-basket {
+    width: 24px;
+    height: 24px;
+    fill: #333333;
+}
+._icon-enter {
+    width: 20px;
+    height: 22px;
+    fill: #333333;
+}
 
 /* ----- Checkbox & Radiobox ----- */
 
@@ -574,6 +599,89 @@ header._hidden {
 
 .header__search-button {
     margin-right: 40px;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+}
+
+.header__socials {
+    display: flex;
+    margin-right: 30px;
+}
+
+.header__socials-item:not( :last-child ) {
+    margin-right: 16px;
+}
+
+.header__socials-item > a > svg {
+    transition: fill .3s ease;
+}
+
+.header__socials-item > a:hover > svg {
+    fill: #333333;
+}
+
+.header__phone {
+    font-weight: 700;
+    margin-right: 20px;
+}
+
+.header__call-button {
+    margin-right: 30px;
+}
+
+.header__basket {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.header__basket > svg {
+    margin-right: 10px;
+    transition: fill .3s ease;
+}
+
+.header__basket:hover > svg {
+    fill: #DCA33B;
+}
+
+.header__basket > span {
+    font-weight: 700;
+    transition: color .3s ease;
+}
+
+.header__basket:hover > span {
+    color: #DCA33B;
+}
+
+.header__profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header__profile-auth {
+    cursor: pointer;
+    line-height: 22px;
+}
+
+.header__profile-auth > svg {
+    transition: fill .3s ease;
+}
+
+.header__profile-auth:hover > svg {
+    fill: #DCA33B;
+}
+
+.header__profile-name {
+    font-weight: 700;
+}
+
+.header__profile-exit {
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
 }
 
 /*header {
