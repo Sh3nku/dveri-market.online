@@ -1031,6 +1031,190 @@ input[type=text].search-popup__input {
     fill: #0F0F0F;
 }
 
+.search-popup__content-wrapper {
+    position: fixed;
+    top: 110px;
+    z-index: 25;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+    height: calc( 100vh - 120px );
+}
+@media ( max-width: 767px ) {
+    .search-popup__content-wrapper {
+        top: 80px;
+    }
+}
+
+.search-popup__content-wrapper > .container {
+
+}
+
+.search-popup__content-wrapper._search-content-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-popup__content {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 20px 0;
+    max-height: calc( 100vh - 120px );
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+@media ( max-width: 767px ) {
+    .search-popup__content {
+        padding: 5px 0 20px;
+    }
+}
+
+.search-popup__content-section > a {
+    display: block;
+    padding: 15px 30px;
+    transition: background-color .3s ease;
+    font-size: 20px;
+}
+@media ( max-width: 767px ) {
+    .search-popup__content-section > a {
+        padding: 15px;
+        font-size: 16px;
+    }
+}
+
+.search-popup__content-section > a:hover {
+    background-color: #F9E3BB;
+}
+
+.search-popup__content-section i {
+    font-style: normal;
+    font-weight: 700;
+}
+
+.search-popup__content-sections + .search-popup__content-list {
+    border-top: 1px solid #E2E2E2;
+}
+
+.search-popup__item {
+    padding: 20px 30px;
+    display: flex;
+}
+@media ( max-width: 767px ) {
+    .search-popup__item {
+        padding: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.search-popup__item-picture {
+    margin-right: 10px;
+    flex: 0 0 51px;
+}
+@media ( max-width: 767px ) {
+    .search-popup__item-picture {
+        margin-right: 0;
+        flex: 0 0 37px;
+        margin-bottom: 10px;
+    }
+    .search-popup__item-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.search-popup__item-title {
+    display: inline-block;
+    background-image: linear-gradient( rgba( 51, 51, 51 ), rgba( 51, 51, 51 ) );
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 1px;
+    transition: background-size .25s ease,opacity .25s ease;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+@media ( max-width: 767px ) {
+    .search-popup__item-title {
+        font-size: 16px;
+        margin-bottom: 3px;
+    }
+}
+
+.search-popup__item-link:hover .search-popup__item-title {
+    background-size: 100% 1px;
+}
+
+.search-popup__item-title i {
+    font-style: normal;
+    font-weight: 700;
+}
+
+.search-popup__item-model {
+    font-size: 14px;
+    color: #737D87;
+    margin-bottom: 5px;
+}
+@media ( max-width: 767px ) {
+    .search-popup__item-model {
+        text-align: center;
+        margin-bottom: 3px;
+    }
+}
+
+.search-popup__item-price {
+    font-size: 20px;
+    font-weight: 700;
+}
+@media ( max-width: 767px ) {
+    .search-popup__item-price {
+        font-size: 16px;
+    }
+}
+
+.search-popup__item-price > .rub:after {
+    width: 8px;
+    bottom: 8px;
+}
+
+.search-popup__content-sections + .search-popup__content-footer,
+.search-popup__content-list + .search-popup__content-footer {
+    border-top: 1px solid #E2E2E2;
+}
+
+.search-popup__content-footer {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 10px;
+}
+
+.search-popup__content-footer > a {
+    padding-right: 18px;
+    background: url( ../images/icons/arrow-link.svg ) center right no-repeat;
+    background-size: 8px;
+    transition: padding-right .3s ease, padding-left .3s ease;
+}
+
+.search-popup__content-footer > a:hover {
+    padding-left: 4px;
+    padding-right: 22px;
+}
+
+/* ----- Search Page ----- */
+
+.search-form {
+    margin-bottom: 32px;
+}
+
+.search-form > form {
+    display: flex;
+}
+
+.search-form > form > input[type=submit] {
+    flex: 0 0 80px;
+}
+
 /* ----- Catalog menu ----- */
 
 .menu {
@@ -2656,6 +2840,8 @@ footer {
     width: 100%;
     padding: 32px 16px 0;
 }
+
+.col-6  { flex: 0 0 50%; max-width: 50% }
 
 @media ( min-width: 576px ) {
 
