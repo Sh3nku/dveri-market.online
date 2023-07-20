@@ -66,7 +66,7 @@
 
     <div class="search-popup__content-wrapper">
         <div class="container">
-            <div class="search-popup__content | js-search-popup-content"></div>
+            <div class="search-popup__content small-scroll | js-search-popup-content"></div>
         </div>
     </div>
 

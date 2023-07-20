@@ -169,7 +169,7 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 <nav class="menu">
     <div class="container">
         <div class="menu__main">
-            <div class="menu__first-level">
+            <div class="menu__first-level small-scroll">
                 <p>Основные пункты меню</p>
                 <p>Основные пункты меню</p>
                 <p>Основные пункты меню</p>
