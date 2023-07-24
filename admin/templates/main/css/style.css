@@ -1357,6 +1357,11 @@ input[type=text].search-popup__input {
     font-size: 14px;
 }
 
+.menu__first-level__li._separator {
+    height: 1px;
+    background-color: #E8E8E8;
+}
+
 .menu__first-level__li:not( :last-child ) {
     margin-bottom: 10px;
 }

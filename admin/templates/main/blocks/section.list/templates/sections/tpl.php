@@ -213,7 +213,15 @@ if ( $arResult['items'] ) {
                                     <?}?>
                                 </a>
                             </li>
-                        <?}?>
+                        <?}global $Includes;
+
+                        $Includes::Template(
+                            'main:menu',
+                            'top',
+                            array(
+                                'type' => 'top'
+                            )
+                        )?>
                     </ul>
                 </div>
             </div>
