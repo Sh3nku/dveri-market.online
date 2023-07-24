@@ -170,57 +170,252 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
     <div class="container">
         <div class="menu__main">
             <div class="menu__first-level small-scroll">
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
-                <p>Основные пункты меню</p>
+                <ul class="menu__first-level__ul">
+                    <li class="menu__first-level__li">
+                        <a class="menu__first-level__a | js-menu-choice" href="#" data-menu_id="1">
+                            <div class="menu__first-level__svg">
+                                <svg class="_icon-menu-1">
+                                    <use xlink:href="<?=TPL?>/images/icons/menu-1.svg#menu-1"></use>
+                                </svg>
+                            </div>
+
+                            <span>Двери на заказ</span>
+
+                            <div class="menu__first-level__svg-arrow">
+                                <svg class="_icon-arrow-menu-item">
+                                    <use xlink:href="<?=TPL?>/images/icons/arrow-menu-item.svg#arrow-menu-item"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="menu__first-level__li">
+                        <a class="menu__first-level__a | js-menu-choice" href="#" data-menu_id="2">
+                            <div class="menu__first-level__svg">
+                                <svg class="_icon-menu-2">
+                                    <use xlink:href="<?=TPL?>/images/icons/menu-2.svg#menu-2"></use>
+                                </svg>
+                            </div>
+
+                            <span>Межкомнатные двери</span>
+
+                            <div class="menu__first-level__svg-arrow">
+                                <svg class="_icon-arrow-menu-item">
+                                    <use xlink:href="<?=TPL?>/images/icons/arrow-menu-item.svg#arrow-menu-item"></use>
+                                </svg>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="menu__first-level__li | js-menu-choice" data-menu_id="3">
+                        <a class="menu__first-level__a" href="#">
+                            <div class="menu__first-level__svg">
+                                <svg class="_icon-menu-3">
+                                    <use xlink:href="<?=TPL?>/images/icons/menu-3.svg#menu-3"></use>
+                                </svg>
+                            </div>
+
+                            <span>Скрытые двери</span>
+                        </a>
+                    </li>
+
+                    <li class="menu__first-level__li | js-menu-choice" data-menu_id="4">
+                        <a class="menu__first-level__a" href="#">
+                            <div class="menu__first-level__svg">
+                                <svg class="_icon-menu-4">
+                                    <use xlink:href="<?=TPL?>/images/icons/menu-4.svg#menu-4"></use>
+                                </svg>
+                            </div>
+
+                            <span>Входные двери</span>
+                        </a>
+                    </li>
+
+                    <li class="menu__first-level__li | js-menu-choice" data-menu_id="5">
+                        <a class="menu__first-level__a" href="#">
+                            <div class="menu__first-level__svg">
+                                <svg class="_icon-menu-5">
+                                    <use xlink:href="<?=TPL?>/images/icons/menu-5.svg#menu-5"></use>
+                                </svg>
+                            </div>
+
+                            <span>Напольный плинтус</span>
+                        </a>
+                    </li>
+
+                    <li class="menu__first-level__li | js-menu-choice" data-menu_id="6">
+                        <a class="menu__first-level__a" href="#">
+                            <div class="menu__first-level__svg">
+                                <svg class="_icon-menu-6">
+                                    <use xlink:href="<?=TPL?>/images/icons/menu-6.svg#menu-6"></use>
+                                </svg>
+                            </div>
+
+                            <span>Специализированные двери</span>
+                        </a>
+                    </li>
+
+                    <li class="menu__first-level__li | js-menu-choice" data-menu_id="7">
+                        <a class="menu__first-level__a" href="#">
+                            <div class="menu__first-level__svg">
+                                <svg class="_icon-menu-7">
+                                    <use xlink:href="<?=TPL?>/images/icons/menu-7.svg#menu-7"></use>
+                                </svg>
+                            </div>
+
+                            <span>Фурнитура</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="menu__second">
-            <h3>Межкомнатные двери</h3>
-            <p>Подпункты</p>
+        <div class="menu__second small-scroll">
+            <div class="menu__second-level" data-menu_target="1">
+                <div class="menu__subtitle">
+                    <div class="menu__subtitle__svg-arrow | js-menu-back">
+                        <svg class="_icon-arrow-menu-item">
+                            <use xlink:href="<?=TPL?>/images/icons/arrow-menu-item.svg#arrow-menu-item"></use>
+                        </svg>
+                    </div>
+                    Двери на заказ
+                </div>
+
+                <ul class="menu__second-level__ul small-scroll">
+                    <li>
+                        <a href="#">Фабрика Престиж</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Фабрика Гармония</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Фабрика Илыш</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="menu__second-level _active" data-menu_target="2">
+                <div class="menu__subtitle">
+                    <div class="menu__subtitle__svg-arrow | js-menu-back">
+                        <svg class="_icon-arrow-menu-item">
+                            <use xlink:href="<?=TPL?>/images/icons/arrow-menu-item.svg#arrow-menu-item"></use>
+                        </svg>
+                    </div>
+                    Межкомнатные двери
+                </div>
+
+                <ul class="menu__second-level__ul small-scroll">
+                    <li class="menu__second-level__li"><a class="menu__second-level__a" href="#">перейти в раздел "Межкомнатные двери"</a></li>
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a | js-menu-choice" href="#" data-menu_id="11">
+                            ПВХ
+                            <div class="menu__first-level__svg-arrow">
+                                <svg class="_icon-arrow-menu-item">
+                                    <use xlink:href="<?=TPL?>/images/icons/arrow-menu-item.svg#arrow-menu-item"></use>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <div class="menu__third-level" data-menu_target="11">
+                            <div class="menu__subtitle">
+                                <div class="menu__subtitle__svg-arrow | js-menu-back">
+                                    <svg class="_icon-arrow-menu-item">
+                                        <use xlink:href="<?=TPL?>/images/icons/arrow-menu-item.svg#arrow-menu-item"></use>
+                                    </svg>
+                                </div>
+                                ПВХ
+                            </div>
+
+                            <ul class="menu__third-level__ul small-scroll">
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">перейти в раздел "ПВХ"</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Белые</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Светлые</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Винил</a>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Эмаль</a>
+
+                        <div class="menu__third-level">
+                            <ul class="menu__third-level__ul">
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Белые</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Белые глухие</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Белые остеклённые</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Со стеклом</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Глухие</a></li>
+                                <li class="menu__third-level__li _more"><a class="menu__third-level__a js-menu-more" href="#">Ещё 2</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Скинни</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Классика</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Эмалит</a>
+
+                        <div class="menu__third-level">
+                            <ul class="menu__third-level__ul">
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Белые</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Ламинат</a>
+
+                        <div class="menu__third-level">
+                            <ul class="menu__third-level__ul">
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Белые</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Глухие</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Со стеклом</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Эко шпон</a>
+
+                        <div class="menu__third-level">
+                            <ul class="menu__third-level__ul">
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Глухие</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Остеклённые</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Классика</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Белые</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Светлые</a></li>
+                                <li class="menu__third-level__li _more"><a class="menu__third-level__a js-menu-more" href="#">Ещё 2</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Тёмные</a></li>
+                                <li class="menu__third-level__li"><a class="menu__third-level__a" href="#">Браво</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">CPL пластиком</a>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Финиш Флекс</a>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Хард Флекс</a>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Soft Touch</a>
+                    </li>
+
+                    <li class="menu__second-level__li">
+                        <a class="menu__second-level__a" href="#">Soft Touch</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

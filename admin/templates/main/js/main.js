@@ -77,9 +77,13 @@ function ClosePopupSearch () {
     $( '.search-popup__content-wrapper' ).removeClass( '_search-content-open' );
 }
 
-window.onpopstate = function() {
-    getPage( window.location.pathname + window.location.search, false );
-};
+function IsMobile() {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 $( function () {
 
@@ -370,6 +374,58 @@ $( function () {
         }
 
         lastscrolltop = $( window ).scrollTop();
+
+    });
+
+    $( '.menu__first-level__a.js-menu-choice' ).on( 'mouseenter', function () {
+        if ( !IsMobile() ) {
+            let id = $( this ).data( 'menu_id' ),
+                target = $( '.menu__second-level[data-menu_target=' + id + ']' );
+
+            $( '.menu__second-level' ).removeClass( '_active' );
+            target.addClass( '_active' );
+        }
+    });
+
+    $( '.js-menu-choice' ).on( 'click', function ( e ) {
+
+        if ( !IsMobile() ) return false;
+
+        e.preventDefault();
+
+        let id = $( this ).data( 'menu_id' ),
+            target = $( '[data-menu_target=' + id + ']' );
+
+        $( '.menu__second' ).addClass( '_active' );
+        target.addClass( '_open' );
+
+        console.log( id );
+
+    });
+
+    $( '.js-menu-back' ).on( 'click', function () {
+
+        let isTwoLevel = false,
+            target = $( this ).parent( 'div' ).parent( 'div' );
+
+        if ( target.hasClass( 'menu__second-level' ) ) {
+            isTwoLevel = true;
+        }
+
+        if ( isTwoLevel ) {
+            $( '.menu__second' ).removeClass( '_active' );
+        }
+
+        target.removeClass( '_open' );
+
+        console.log( isTwoLevel );
+
+    });
+
+    $( '.js-menu-more' ).on( 'click', function () {
+
+        $( this ).closest( 'ul' ).addClass( '_show-all' );
+        $( this ).remove();
 
     });
 
