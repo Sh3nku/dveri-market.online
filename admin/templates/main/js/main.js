@@ -389,17 +389,15 @@ $( function () {
 
     $( '.js-menu-choice' ).on( 'click', function ( e ) {
 
-        if ( !IsMobile() ) return false;
+        if ( IsMobile() && !$( this ).hasClass( 'js-no' ) ) {
+            e.preventDefault();
 
-        e.preventDefault();
+            let id = $( this ).data( 'menu_id' ),
+                target = $( '[data-menu_target=' + id + ']' );
 
-        let id = $( this ).data( 'menu_id' ),
-            target = $( '[data-menu_target=' + id + ']' );
-
-        $( '.menu__second' ).addClass( '_active' );
-        target.addClass( '_open' );
-
-        console.log( id );
+            $( '.menu__second' ).addClass( '_active' );
+            target.addClass( '_open' );
+        }
 
     });
 

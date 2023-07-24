@@ -352,18 +352,6 @@
 
 @media ( max-width: 700px ) {
 
-    .header-top {
-        padding-right: 16px;
-    }
-
-    .header-top-phone {
-        margin: 0 16px;
-    }
-
-    .header {
-        padding-right: 16px;
-    }
-
     .main-about-picture img:last-child {
         display: none;
     }
@@ -737,18 +725,6 @@
 }
 
 @media ( max-width: 400px ) {
-
-    .header-top {
-        padding-right: 8px;
-    }
-
-    .header-top-phone {
-        margin-right: 8px;
-    }
-
-    .header-top-social-a:not( :last-child ) {
-        margin-right: 4px;
-    }
 
     .main-about {
         margin-bottom: 32px;

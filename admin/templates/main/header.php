@@ -166,6 +166,25 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 
 </header>
 
+<?$Includes::Template(
+    'main:section.list',
+    'sections',
+    array(
+        'select' => array(),
+        'filter' => array(
+            'iblock_id' => 29,
+            'active' => 1
+        ),
+        'order' => array(
+            'sort' => 'asc'
+        ),
+        'params' => array(
+            'reset_keys' => 'N'
+        )
+    )
+)?>
+
+<?/*
 <nav class="menu">
     <div class="container">
         <div class="menu__main">
@@ -419,6 +438,7 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
         </div>
     </div>
 </nav>
+*/?>
 
 <?//if ( $_SESSION['user']['id'] == 1 ) $Functions -> Pre( $_SERVER )?>
 
