@@ -230,7 +230,7 @@
         position: static;
     }
 
-    .responsive-filter .filter-button {
+    .responsive-filter input[type=submit].filter-button {
         display: block;
     }
 

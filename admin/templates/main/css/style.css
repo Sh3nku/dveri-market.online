@@ -2311,7 +2311,7 @@ main ul li:before {
     overflow: hidden;
 }
 
-.filter-button {
+input[type=submit].filter-button {
     margin: 0 auto;
     width: 160px;
     display: none;
