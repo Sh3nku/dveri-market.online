@@ -6,10 +6,10 @@ $htmlBreadcrumb = '';
 
 if ( !empty( $arBreadcrumb ) ) {
 
-    $htmlBreadcrumb .= '<nav class="breadcrumb"><ul>';
+    $htmlBreadcrumb .= '<nav class="breadcrumb"><ul itemscope itemtype="https://schema.org/BreadcrumbList">';
 
     foreach ( $arBreadcrumb as $key => $arItem ) {
-        $htmlBreadcrumb .= '<li>' . ( !empty( $arItem['url'] && count($arBreadcrumb ) != ( $key + 1 ) ) ? '<a class="_underline" href="' . $arItem['url'] . '">' . $arItem['title'] . '</a>' : $arItem['title'] ) . '</li>';
+        $htmlBreadcrumb .= '<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">' . ( !empty( $arItem['url'] && count($arBreadcrumb ) != ( $key + 1 ) ) ? '<a itemprop="item" class="_underline" href="' . $arItem['url'] . '"><span itemprop="name"><meta itemprop="position" content="' . ( $key + 1 ) . '" />' . $arItem['title'] . '</span></a>' : '<span itemprop="name">' . $arItem['title'] . '</span>' ) . '</li>';
     }
 
     $htmlBreadcrumb .= '</ul></nav>';
