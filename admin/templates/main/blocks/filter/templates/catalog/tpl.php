@@ -18,7 +18,7 @@ if ( $arResult ) {?>
 
         <input type="hidden" name="section_code" value="<?=$arParams['section_code']?>">
 
-        <div class="row mb-16">
+        <div class="row">
 
             <div class="col-s-9 main-filter">
 
