@@ -2,6 +2,77 @@
 
 $Includes -> AddScript( '/katalog/script.js' );
 
+$is_section = true;
+$section_code = !empty( $_GET['section_parent'] ) ? $_GET['section_parent'] : $_GET['section_code'];
+$product_code = '';
+
+$arResult = $Content -> GetList(
+    array(),
+    array(
+        'iblock_id' => 32,
+        'url_chpu' => ( ( str_contains( $_SERVER['REQUEST_URI'], '?' ) ) ? strstr( $_SERVER['REQUEST_URI'], '?', true ) : $_SERVER['REQUEST_URI'] )
+    )
+);
+
+$arItem = $arResult['items'][0];
+
+$arTagPage = array();
+
+if ( !empty( $arItem ) ) {
+
+    $section_code = '';
+
+    if ( !empty( $_GET['product_code'] ) ) {
+        $section_code = $_GET['section_parent'];
+    } else if ( !empty( $_GET['section_parent'] ) ) {
+        $section_code = $_GET['section_code'];
+    }
+
+    $params = explode( '?', $arItem['url'] );
+    $arParams = explode( '&', $params[1] );
+    $arTagParams = array();
+
+    foreach ( $arParams as $arParam ) {
+        $exp = explode( '=', $arParam );
+
+        $key = preg_replace( '/\[\]/', '', $exp[0] );
+
+        if ( !empty( $arTagParams[$key] ) ) {
+            $arTagParams[$key] = array_merge( $arTagParams[$key], array( $exp[1] ) );
+        } else {
+            $arTagParams[$key] = array( $exp[1] );
+        }
+
+    }
+
+    if ( !empty( $section_code ) ) $arTagParams['section_code'] = $section_code;
+
+    $arTagPage = array(
+        'h1' => $arItem['h1'],
+        'name' => $arItem['name'],
+        'title' => $arItem['title'],
+        'text' => $arItem['text'],
+        'description' => $arItem['description'],
+        'url_chpu' => $arItem['url_chpu'],
+        'filter' => $arTagParams
+    );
+
+}
+
+if (
+    (
+        !empty( $_GET['product_code'] )
+        && empty( $arTagPage )
+    ) || (
+        !empty( $_GET['section_parent'] )
+        && empty( $_GET['product_code'] )
+        && $mysql -> query( 'SELECT `id` FROM `i_catalog` WHERE `code` = ?s', $_GET['section_parent'] ) -> num_rows
+    )
+) {
+    $product_code = $_GET['product_code'] ?? $_GET['section_parent'];
+    $is_section = false;
+}
+
 if ( $is_section ) {
 
     if ( !empty( $arTagPage ) ) {
@@ -138,71 +209,73 @@ if ( $is_section ) {
                 array( 'limit' => 1 )
             );
 
-            $section_id = $arCurrentSection['items'][0]['id'];
+            if ( !empty( $arCurrentSection['items'] ) ) $section_id = $arCurrentSection['items'][0]['id'];
 
         }
 
         if ( !empty( $arCurrentPage['items'] ) || !empty( $section_id ) ) {
 
-                $arFilterTags = array(
-                    'iblock_id' => 32
+            $arFilterTags = array(
+                'iblock_id' => 32
+            );
+
+            if ( !empty( $section_id ) ) {
+                $arFilterTags['bind_section'] = $section_id;
+            } else {
+                $arBind = $arCurrentPage['items'][0]['bind'];
+                $arValues = array();
+
+                if ( !empty( $arBind ) ) {
+                    foreach ( $arBind as $arItem ) {
+                        $arValues[] = $arItem['value'];
+                    }
+                }
+
+                if ( !empty( $arValues ) ) $arFilterTags['id'] = $arValues;
+            }
+
+            //if ( $_SESSION['user']['id'] ) $Functions -> Pre( $arFilterTags );
+
+            if ( !empty( $arFilterTags['id'] ) || $arFilterTags['bind_section'] ) {
+
+                $arTagPages = $Content -> GetList(
+                    array(
+                        'name', 'h1', 'url_chpu'
+                    ),
+                    $arFilterTags
                 );
 
-                if ( !empty( $section_id ) ) {
-                    $arFilterTags['bind_section'] = $section_id;
-                } else {
-                    $arBind = $arCurrentPage['items'][0]['bind'];
-                    $arValues = array();
+            }
 
-                    if ( !empty( $arBind ) ) {
-                        foreach ( $arBind as $arItem ) {
-                            $arValues[] = $arItem['value'];
-                        }
-                    }
+            if ( $arTagPages['items'] ) {?>
+                <div class="catalog-tag__list">
+                    <div class="catalog-tag__title">Выберите подраздел:</div>
 
-                    if ( !empty( $arValues ) ) $arFilterTags['id'] = $arValues;
-                }
-
-                //if ( $_SESSION['user']['id'] ) $Functions -> Pre( $arFilterTags );
-
-                if ( !empty( $arFilterTags['id'] ) || $arFilterTags['bind_section'] ) {
-
-                    $arTagPages = $Content -> GetList(
-                        array(
-                            'name', 'h1', 'url_chpu'
-                        ),
-                        $arFilterTags
-                    );
-
-                }
-
-                if ( $arTagPages['items'] ) {?>
-                    <div class="catalog-tag__list">
-                        <div class="catalog-tag__title">Выберите подраздел:</div>
-
-                        <div class="buttons">
-                            <?foreach ( $arTagPages['items'] as $arItem ) {
-                                $name = ( ( !empty( $arItem['name'] ) ) ? $arItem['name'] : $arItem['h1'] )?>
-                                <a class="button _with-icon _light small" href="<?=$arItem['url_chpu']?>">
-                                    <span><?=$name?></span>
-                                    <svg class="_icon-arrow-link">
-                                        <use xlink:href="<?=TPL?>/images/icons/arrow-link.svg#arrow-link"></use>
-                                    </svg>
-                                </a>
-                            <?}?>
-                        </div>
-
-                        <div class="catalog-tag__more">
-                            <div class="button _with-icon small js-short-view">
-                                <span>Показать всё</span>
+                    <div class="buttons">
+                        <?foreach ( $arTagPages['items'] as $arItem ) {
+                            $name = ( ( !empty( $arItem['name'] ) ) ? $arItem['name'] : $arItem['h1'] )?>
+                            <a class="button _with-icon _light small" href="<?=$arItem['url_chpu']?>">
+                                <span><?=$name?></span>
                                 <svg class="_icon-arrow-link">
                                     <use xlink:href="<?=TPL?>/images/icons/arrow-link.svg#arrow-link"></use>
                                 </svg>
-                            </div>
+                            </a>
+                        <?}?>
+                    </div>
+
+                    <div class="catalog-tag__more">
+                        <div class="button _with-icon small js-short-view">
+                            <span>Показать всё</span>
+                            <svg class="_icon-arrow-link">
+                                <use xlink:href="<?=TPL?>/images/icons/arrow-link.svg#arrow-link"></use>
+                            </svg>
                         </div>
                     </div>
-                <?}
-            }
+                </div>
+            <?}
+        }
+
+        //$MAIN::Show404();
 
         $Includes::Template(
             'main:catalog.offers.list',

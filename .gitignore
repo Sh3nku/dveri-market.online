@@ -1,2 +1,4 @@
 /.idea
 /robots.txt
+/admin/core/classes/Includes.php
+/admin/core/classes/Content.php

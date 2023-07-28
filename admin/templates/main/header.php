@@ -198,9 +198,32 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 
             $BUFFER -> ShowBuffer( 'breadcrumb' );
 
+            //$Functions -> Pre( $_GET );
+
+            $isProduct = false;
+            $isTagPage = false;
+
+            if ( !empty( $_GET['section_parent'] ) || empty( $_GET['product_code'] ) ) {
+                $isProduct = $mysql -> query( 'SELECT `id` FROM `i_catalog` WHERE `code` = ?s', $_GET['section_parent'] ) -> num_rows;
+            }
+
+            if ( !empty( $_GET['product_code'] ) ) {
+
+                $arResult = $Content -> GetList(
+                    array(),
+                    array(
+                        'iblock_id' => 32,
+                        'url_chpu' => ( ( str_contains( $_SERVER['REQUEST_URI'], '?' ) ) ? strstr( $_SERVER['REQUEST_URI'], '?', true ) : $_SERVER['REQUEST_URI'] )
+                    )
+                );
+
+                $isTagPage = $arResult['items'][0];
+            }
+
             if (
-                ( empty( $_GET['product_code'] ) && empty( $_GET['offer_code'] ) )
-                || !empty( $arTagPage )
+                (
+                    empty( $_GET['product_code'] ) && empty( $isProduct )
+                ) || !empty( $isTagPage )
             ) {?>
                 <h1><?$BUFFER -> ShowBuffer( 'H1' )?></h1>
             <?}
