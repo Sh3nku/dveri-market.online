@@ -245,23 +245,6 @@ $( function () {
         })
 
     });
-    
-    $( document ).on( 'click', '.js-short-view', function () {
-
-        let block = $( this ).closest( '.short-view' );
-        let content = block.children( '*:first-child' ),
-            open = false;
-
-        if ( block.hasClass( '_show' ) ) {
-            open = true;
-            block.removeClass( '_show' ).removeAttr( 'style' );
-        } else {
-            block.addClass( '_show' ).height( content.outerHeight() );
-        }
-
-        $( this ).text( ( ( open ) ? 'Показать' : 'Скрыть' ) );
-
-    });
 
     $( '.js-search-button' ).on( 'click', function () {
 
@@ -427,6 +410,40 @@ $( function () {
 
     });
 
+    /* ----- Каталог ----- */
+
+    function catalogTagMoreToggle() {
+
+        if ( $( '.catalog-tag__list > .buttons' ).outerHeight() < 80 ) {
+            $( '.catalog-tag__more' ).hide();
+            //$( '.catalog-tag__list' ).removeClass( '_short' );
+        } else {
+            $( '.catalog-tag__more' ).show();
+            //$( '.catalog-tag__list' ).addClass( '_short' );
+        }
+    }
+
+    catalogTagMoreToggle();
+
+    $( window ).on( 'resize', function () {
+        catalogTagMoreToggle();
+    });
+
+    $( document ).on( 'click', '.js-short-view', function () {
+
+        let button = $( this ).children( 'span' ),
+            block = $( this ).closest( '.catalog-tag__list' ),
+            height = block.children( '.buttons' ).outerHeight();
+
+        if ( block.hasClass( '_open' ) ) {
+            block.removeAttr( 'style' ).removeClass( '_open' );
+            button.text( 'Показать всё' );
+        } else {
+            block.height( height ).addClass( '_open' );
+            button.text( 'Свернуть' );
+        }
+
+    });
 })
 
 $( document ).on( 'focus', '.errors-item', function () {

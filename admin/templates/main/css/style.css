@@ -242,62 +242,11 @@ a {
 .button._with-icon {
     padding: 13px 35px;
 }
-.button._with-icon > svg {
+.button._with-icon > svg:first-child {
     margin-right: 10px;
 }
-.button._with-icon > .button__icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-.button._with-icon > .button__icon > span {
-    display: block;
-    width: 18px;
-    height: 2px;
-    border-radius: 1px;
-    background-color: #333333;
-    transition: width .3s ease, transform .3s ease;
-}
-.button._with-icon > .button__icon > span:first-child {
-    margin-bottom: 4px;
-    width: 14px;
-}
-.button._with-icon > .button__icon > span:nth-child(2) {
-    display: none;
-    transition: opacity .3s ease, visibility .3s ease;
-}
-@media ( max-width: 1023px ) {
-    .button._with-icon > .button__icon > span:nth-child(2) {
-        display: block;
-    }
-}
-
-._catalog-open .button._with-icon > .button__icon > span:first-child {
-    width: 18px;
-    transform: rotate( 45deg ) translate( 3px, 2px );
-}
-@media ( max-width: 1023px ) {
-    ._catalog-open .button._with-icon > .button__icon > span:first-child {
-        width: 30px;
-        transform: rotate( 45deg ) translate( 8px, 5px );
-    }
-}
-@media ( max-width: 1023px ) {
-    ._catalog-open .button._with-icon > .button__icon > span:nth-child(2) {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-._catalog-open .button._with-icon > .button__icon > span:last-child {
-    transform: rotate( -45deg ) translate( 2px, -1px );
-}
-@media ( max-width: 1023px ) {
-    ._catalog-open .button._with-icon > .button__icon > span:last-child {
-        transform: rotate( -45deg ) translate( 5px, -5px );
-    }
+.button._with-icon > svg:last-child {
+    margin-left: 10px;
 }
 
 .button._transperent {
@@ -357,6 +306,7 @@ a {
 
 .button.small {
     padding: 6px 16px;
+    font-weight: 400;
 }
 .button._smaller {
     padding: 4px 8px;
@@ -371,11 +321,77 @@ a {
 .buttons {
     display: flex;
     flex-wrap: wrap;
-    margin-top: -8px;
+    margin: -16px -8px 0;
+}
+@media ( max-width: 767px ) {
+    .buttons {
+        margin: -8px -4px 0;
+    }
 }
 .buttons > .button {
-    margin-top: 8px;
-    margin-left: 8px;
+    margin: 16px 8px 0;
+}
+@media ( max-width: 767px ) {
+    .buttons > .button {
+        margin: 8px 4px 0;
+    }
+}
+
+/* Бургер для каталога */
+
+.button._with-icon > .button__icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.button._with-icon > .button__icon > span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: #333333;
+    transition: width .3s ease, transform .3s ease;
+}
+.button._with-icon > .button__icon > span:first-child {
+    margin-bottom: 4px;
+    width: 14px;
+}
+.button._with-icon > .button__icon > span:nth-child(2) {
+    display: none;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+@media ( max-width: 1023px ) {
+    .button._with-icon > .button__icon > span:nth-child(2) {
+        display: block;
+    }
+}
+
+._catalog-open .button._with-icon > .button__icon > span:first-child {
+    width: 18px;
+    transform: rotate( 45deg ) translate( 3px, 2px );
+}
+@media ( max-width: 1023px ) {
+    ._catalog-open .button._with-icon > .button__icon > span:first-child {
+        width: 30px;
+        transform: rotate( 45deg ) translate( 8px, 5px );
+    }
+}
+@media ( max-width: 1023px ) {
+    ._catalog-open .button._with-icon > .button__icon > span:nth-child(2) {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+._catalog-open .button._with-icon > .button__icon > span:last-child {
+    transform: rotate( -45deg ) translate( 2px, -1px );
+}
+@media ( max-width: 1023px ) {
+    ._catalog-open .button._with-icon > .button__icon > span:last-child {
+        transform: rotate( -45deg ) translate( 5px, -5px );
+    }
 }
 
 /* ----- Icons ----- */
@@ -462,6 +478,12 @@ a {
 ._icon-arrow-menu-item {
     width: 7px;
     height: 12px;
+    fill: #333333;
+}
+._icon-arrow-link {
+    width: 5px;
+    min-width: 5px;
+    height: 8px;
     fill: #333333;
 }
 
@@ -2318,6 +2340,11 @@ input[type=submit].filter-button {
 .catalog-wrapper {
     margin: 32px 0;
 }
+@media ( max-width: 767px ) {
+    .catalog-wrapper {
+        margin-top: 16px;
+    }
+}
 
 .catalog-item-col {
     margin-bottom: 24px;
@@ -2561,6 +2588,86 @@ input[type=submit].filter-button {
     display: block;
     z-index: 9999;
 }
+
+/* ----- Теговые разделы ----- */
+
+.catalog-tag__list {
+    padding: 16px 24px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 32px;
+    display: flex;
+    height: 68px;
+    overflow: hidden;
+    transition: height .3s ease;
+}
+@media ( max-width: 767px ) {
+    .catalog-tag__list {
+        padding: 8px 16px;
+        margin-bottom: 16px;
+        height: 52px;
+    }
+}
+.catalog-tag__list > .catalog-tag__more > .button > svg {
+    transition: transform .3s ease;
+}
+.catalog-tag__list._open > .catalog-tag__more > .button > svg {
+    transform: rotate( -90deg );
+}
+
+.catalog-tag__list._open {
+    height: auto;
+}
+
+.catalog-tag__title {
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-right: 16px;
+}
+@media ( max-width: 767px ) {
+    .catalog-tag__title {
+        display: none;
+    }
+}
+
+.catalog-tag__list > .buttons {
+    flex-grow: 1;
+    display: table;
+}
+
+.catalog-tag__more {
+    width: 152px;
+    flex: 0 0 152px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+@media ( max-width: 767px ) {
+    .catalog-tag__more {
+        width: auto;
+        flex: 0 0 auto;
+    }
+}
+
+.catalog-tag__more:not(:empty) {
+    margin-left: 16px;
+}
+
+@media ( max-width: 767px ) {
+    .catalog-tag__more > .button {
+        height: 36px;
+    }
+    .catalog-tag__more > .button > span {
+        display: none;
+    }
+    .catalog-tag__more > .button > svg:last-child {
+        margin-left: 0;
+    }
+}
+
+/* ----- Пагинация ----- */
 
 .pagination-ul {
     display: flex;
