@@ -3271,6 +3271,46 @@ input.basket-count-input {
     opacity: .5;
 }
 
+/* ------ 404 ------ */
+
+.page-404 {
+    background: url(../images/bg-404.png) no-repeat center;
+    background-size: cover;
+    padding: 48px 0;
+}
+@media ( max-width: 575px ) {
+    .page-404 {
+        background-position: top right -70px;
+        background-size: auto 300px;
+    }
+}
+
+.page-404__title {
+    margin-bottom: 48px;
+}
+@media ( max-width: 575px ) {
+    .page-404__title {
+        margin-top: 300px;
+        margin-bottom: 48px;
+    }
+    .page-404__title > img {
+        height: 64px;
+    }
+}
+
+.page-404__text {
+    font-size: 24px;
+    line-height: 130%;
+    margin-bottom: 32px;
+    max-width: 520px;
+}
+@media ( max-width: 575px ) {
+    .page-404__text {
+        font-size: 16px;
+        max-width: none;
+    }
+}
+
 /* ------ Подвал ------ */
 
 footer {
