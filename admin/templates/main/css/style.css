@@ -2919,7 +2919,7 @@ input[type=submit].filter-button {
 .product-button-in-basket {
     background: url( ../images/cart.svg ) no-repeat #f4b84c center left 24px;
     background-size: 30px;
-    padding: 16px 32px 16px 80px;
+    padding: 13px 32px 13px 80px;
 }
 
 .product-button-in-basket:not(:last-child) {

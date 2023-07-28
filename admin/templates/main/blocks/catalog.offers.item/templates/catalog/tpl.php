@@ -217,7 +217,7 @@ if ( !empty( $arResult['items'] ) ) {
                     <div class="button product-button-in-basket js-in-basket">В корзину</div>
 
                     <div class="product-measurement-button">
-                        <span class="button small white js-order-measurement">Заказать замер</span>
+                        <span class="button _black | js-order-measurement">Заказать замер</span>
                     </div>
                 </div>
 
