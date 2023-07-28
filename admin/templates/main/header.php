@@ -48,7 +48,6 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 <?//if ( $User -> IsAuthorized() ) $Includes::Panel()?>
 
 <header>
-
     <div class="container">
         <div class="header">
             <div class="header__left">
@@ -151,19 +150,6 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
             </div>
         </div>
     </div>
-
-    <!--<div class="header">
-
-        <?$Includes::Template(
-            'main:menu',
-            'top',
-            array(
-                'type' => 'top'
-            )
-        )?>
-
-    </div-->
-
 </header>
 
 <?$Includes::Template(
