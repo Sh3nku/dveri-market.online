@@ -50,12 +50,12 @@
     <div class="body-overlay"></div>
     <div class="search-popup">
         <div class="container">
-            <form class="search-popup__form">
+            <form class="search-popup__form" action="/search/">
                 <svg class="_icon-search">
                     <use xlink:href="<?=TPL?>/images/icons/search.svg#search"></use>
                 </svg>
 
-                <input type="text" class="search-popup__input | js-search-popup-input" placeholder="Поиск по сайту">
+                <input name="q" type="text" class="search-popup__input | js-search-popup-input" placeholder="Поиск по сайту">
 
                 <svg class="_icon-close | js-search-popup-close">
                     <use xlink:href="<?=TPL?>/images/icons/close.svg#close"></use>
