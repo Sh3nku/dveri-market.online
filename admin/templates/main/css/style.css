@@ -1749,17 +1749,17 @@ main {
     margin-bottom: 16px;
 }
 
-main ul {
+main ul:not([class]) {
     list-style: none;
     margin-bottom: 16px;
 }
 
-main ul li {
+main ul:not([class]) li {
     padding-left: 24px;
     position: relative;
 }
 
-main ul li:before {
+main ul:not([class]) li:before {
     content: '';
     display: block;
     width: 8px;
