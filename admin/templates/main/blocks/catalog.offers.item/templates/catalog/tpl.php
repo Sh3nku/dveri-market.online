@@ -68,13 +68,15 @@ if ( !empty( $arResult['items'] ) ) {
 
     }?>
 
+    <div itemscope itemtype="https://schema.org/Product">
+
     <div class="product-wrapper">
 
         <div class="product-picture<?=( ( !empty( $arItem['picture_2'] ) ) ? ' _double' : '' )?>">
 
             <div class="product-available <?=$arOffer['available']['code']?>"><?=$arOffer['available']['name']?></div>
 
-            <img class="js-picture" src="<?=$arItem['picture']['path']?>"><?
+            <img class="js-picture" src="<?=$arItem['picture']['path']?>" itemprop="image"><?
 
             if ( !empty( $arItem['picture_2'] ) ) {?><img class="js-picture-2" src="<?=$arItem['picture_2']['path']?>"><?}?>
 
@@ -82,7 +84,7 @@ if ( !empty( $arResult['items'] ) ) {
 
         <div class="product">
 
-            <h1><?=( ( !empty( $page_title ) ) ? $page_title : $arItem['name'] )?></h1>
+            <h1 itemprop="name"><?=( ( !empty( $page_title ) ) ? $page_title : $arItem['name'] )?></h1>
 
             <div class="product-offer-name js-name"><?=$arItem['model']?></div>
 
@@ -187,12 +189,15 @@ if ( !empty( $arResult['items'] ) ) {
 
                 <?}?>
 
-                <div class="product-price-wrapper">
+                <div class="product-price-wrapper" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 
                     <div class="product-price-item">
 
                         <div class="product-price-title">За полотно</div>
 
+                        <meta itemprop="price" content="<?=$arOffer['discount_price']?>">
+                        <meta itemprop="priceCurrency" content="RUB">
+                        <link itemprop="availability" href="http://schema.org/InStock">
                         <div class="product-price"><span class="js-price"><?=number_format( $arOffer['discount_price'], 0, '', ' ' )?></span> <span class="rub">Р</span></div>
 
                         <?if ( !empty( $arOffer['discount'] ) ) {
@@ -329,11 +334,13 @@ if ( !empty( $arResult['items'] ) ) {
 
             <?}?>
 
-            <section class="product-tabs-sections-content" data-tab="description">
+            <section class="product-tabs-sections-content" data-tab="description" itemprop="description">
                 <?=$arItem['description']?>
             </section>
 
         </div>
+
+    </div>
 
     </div>
 

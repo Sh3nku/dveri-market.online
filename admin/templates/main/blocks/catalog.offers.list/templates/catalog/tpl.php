@@ -3,7 +3,7 @@
     global $Includes;
     $classFiles = new Files();?>
 
-    <div class="row">
+    <div class="row" itemscope itemtype="https://schema.org/OfferCatalog">
 
         <?foreach ( $arResult['items'] as $key => $arItem ) {
 
@@ -35,8 +35,8 @@
             $url = '/katalog/' . $arSectionTree[0]['code'] . '/' . ( ( $arSectionTree[0]['children'][0]['code'] ) ? $arSectionTree[0]['children'][0]['code'] . '/' : '' );?>
 
             <div class="col-xx-2 col-x-3 col-l-4 catalog-item-col">
-                <div class="catalog-item">
-                    <a href="<?=$url . $arItem['code']?>/" class="catalog-item-link">
+                <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Offer">
+                    <a itemprop="url" href="<?=$url . $arItem['code']?>/" class="catalog-item-link">
 
                         <?if ( !empty( $arOffer['discount'] ) ) {?>
 
@@ -54,7 +54,7 @@
 
                             <?$picture = $classFiles -> Resize( $arItem['picture']['path'], 184, 224, false, 'catalog_list_' )?>
 
-                            <img src="<?=$picture?>">
+                            <img src="<?=$picture?>" itemprop="image">
 
                             <?if ( !empty( $arItem['picture_2'] ) ) {
 
@@ -66,11 +66,17 @@
 
                         </div>
 
-                        <div class="catalog-item-name"><?=$arItem['name']?></div>
+                        <div class="catalog-item-name" itemprop="name"><?=$arItem['name']?></div>
 
                         <div class="catalog-item-offer-name"><?=$arItem['model']?></div>
 
-                        <div class="catalog-item-price"><?=number_format( $arOffer['discount_price'], 0, '', ' ' )?> <span class="rub">Р</span></div>
+                        <?$price = number_format( $arOffer['discount_price'], 0, '', ' ' )?>
+
+                        <meta itemprop="price" content="<?=$arOffer['discount_price']?>">
+                        <meta itemprop="priceCurrency" content="RUB">
+                        <div class="catalog-item-price"><?=$price?> <span class="rub">Р</span></div>
+
+                        <link itemprop="availability" href="http://schema.org/InStock">
 
                         <?$size = $arOffer['size'][0]['code'];
 
