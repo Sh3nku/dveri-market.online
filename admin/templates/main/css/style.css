@@ -2220,6 +2220,90 @@ main ul li:before {
     transform: rotate( -45deg );
 }
 
+/* ----- Каталог на /katalog/ ----- */
+
+.catalog-main {
+    -moz-column-count: 4;
+    column-count: 4;
+}
+
+.catalog-main a {
+    background-image: linear-gradient( rgba( 51, 51, 51 ), rgba( 51, 51, 51 ) );
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 1px;
+    transition: background-size .25s ease,opacity .25s ease;
+}
+.catalog-main a:hover {
+    background-size: 100% 1px;
+}
+
+.catalog-main__item-wrapper {
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.catalog-main__item {
+    display: flex;
+}
+
+.catalog-main__item-svg {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.catalog-main__item-svg > svg {
+    width: 30px;
+    height: 30px;
+}
+
+.catalog-main__item-title {
+    font-size: 20px;
+    line-height: 130%;
+    font-weight: 700;
+}
+
+.catalog-main__item + .catalog-main__first-lvl__ul {
+    margin-top: 20px;
+}
+
+.catalog-main__first-lvl__ul {
+    margin-bottom: 0;
+}
+
+.catalog-main__first-lvl__li,
+.catalog-main__second-lvl__li {
+    padding-left: 0;
+}
+
+.catalog-main__first-lvl__li:not( :last-child ) {
+    margin-bottom: 15px;
+}
+
+.catalog-main__first-lvl__li:before,
+.catalog-main__second-lvl__li:before {
+    display: none;
+}
+
+.catalog-main__first-lvl__a {
+    font-size: 16px;
+    line-height: 130%;
+    font-weight: 700;
+}
+
+.catalog-main__second-lvl__li {
+    margin-top: 10px;
+}
+
+/* ----- Каталог ----- */
+
 .catalog-select {
     position: relative;
     height: 50px;

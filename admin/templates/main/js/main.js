@@ -85,6 +85,21 @@ function IsMobile() {
     }
 }
 
+function startProgressBar () {
+
+    $( 'body' ).append( $( '<div></div>' ).attr( 'id', 'progress' ) );
+    $( '#progress' ).width( ( 50 + Math.random() * 30 ) + '%' );
+
+}
+
+function endProgressBar () {
+
+    $( '#progress' ).width( '101%' ).delay( 300 ).fadeOut( 400, function () {
+        $( this ).remove();
+    });
+
+}
+
 $( function () {
 
     let scrollWidth = window.innerWidth - document.documentElement.clientWidth;
