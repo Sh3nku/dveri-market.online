@@ -63,74 +63,74 @@ if ( $arResult['items'] ) {
     }?>
 
     <div class="catalog-main">
-            <?foreach ( $arItems as $arItem ) {
+        <?foreach ( $arItems as $arItem ) {
 
-                $iconId = 0;
+            $iconId = 0;
 
-                switch ( $arItem['id'] ) {
-                    case 57:
-                        $iconId = 'menu-1';
-                        break;
-                    case 56:
-                        $iconId = 'menu-2';
-                        break;
-                    case 71:
-                        $iconId = 'menu-3';
-                        break;
-                    case 69:
-                        $iconId = 'menu-4';
-                        break;
-                    case 70:
-                        $iconId = 'menu-5';
-                        break;
-                    case 116:
-                        $iconId = 'menu-6';
-                        break;
-                    case 9999:
-                        $iconId = 'menu-7';
-                        break;
-                    case 124:
-                        $iconId = 'menu-8';
-                        break;
-                }?>
+            switch ( $arItem['id'] ) {
+                case 57:
+                    $iconId = 'menu-1';
+                    break;
+                case 56:
+                    $iconId = 'menu-2';
+                    break;
+                case 71:
+                    $iconId = 'menu-3';
+                    break;
+                case 69:
+                    $iconId = 'menu-4';
+                    break;
+                case 70:
+                    $iconId = 'menu-5';
+                    break;
+                case 116:
+                    $iconId = 'menu-6';
+                    break;
+                case 9999:
+                    $iconId = 'menu-7';
+                    break;
+                case 124:
+                    $iconId = 'menu-8';
+                    break;
+            }?>
 
 
-                <div class="catalog-main__item-wrapper">
-                    <div class="catalog-main__item">
-                        <div class="catalog-main__item-svg">
-                            <?if ( !empty( $iconId ) ) {?>
-                                <svg class="_icon-<?=$iconId?>">
-                                    <use xlink:href="<?=TPL?>/images/icons/<?=$iconId?>.svg#<?=$iconId?>"></use>
-                                </svg>
-                            <?}?>
-                        </div>
-
-                        <div class="catalog-main__item-title">
-                            <a href="/katalog/<?=$arItem['code']?>/"><?=$arItem['name']?></a>
-                        </div>
+            <div class="catalog-main__item-wrapper">
+                <div class="catalog-main__item">
+                    <div class="catalog-main__item-svg">
+                        <?if ( !empty( $iconId ) ) {?>
+                            <svg class="_icon-<?=$iconId?>">
+                                <use xlink:href="<?=TPL?>/images/icons/<?=$iconId?>.svg#<?=$iconId?>"></use>
+                            </svg>
+                        <?}?>
                     </div>
 
-                    <?if ( !empty( $arItem['children'] ) ) {?>
-                        <ul class="catalog-main__first-lvl__ul">
-                            <?foreach ( $arItem['children'] as $arChildren ) {?>
-                                <li class="catalog-main__first-lvl__li">
-                                    <a class="catalog-main__first-lvl__a" href="/katalog/<?=$arItem['code']?>/<?=$arChildren['code']?>/"><?=$arChildren['name']?></a>
-
-                                    <?if ( !empty( $arPages[$arChildren['id']] ) ) {?>
-                                        <ul class="catalog-main__second-lvl__ul">
-                                            <?foreach ( $arPages[$arChildren['id']] as $arPage ) {?>
-                                                <li class="catalog-main__second-lvl__li">
-                                                    <a class="catalog-main__second-lvl__a" href=" <?=$arPage['url_chpu']?>"><?=$arPage['name']?></a>
-                                                </li>
-                                            <?}?>
-                                        </ul>
-                                    <?}?>
-                                </li>
-                            <?}?>
-                        </ul>
-                    <?}?>
+                    <div class="catalog-main__item-title">
+                        <a href="/katalog/<?=$arItem['code']?>/"><?=$arItem['name']?></a>
+                    </div>
                 </div>
-            <?}?>
+
+                <?if ( !empty( $arItem['children'] ) ) {?>
+                    <ul class="catalog-main__first-lvl__ul">
+                        <?foreach ( $arItem['children'] as $arChildren ) {?>
+                            <li class="catalog-main__first-lvl__li">
+                                <a class="catalog-main__first-lvl__a" href="/katalog/<?=$arItem['code']?>/<?=$arChildren['code']?>/"><?=$arChildren['name']?></a>
+
+                                <?if ( !empty( $arPages[$arChildren['id']] ) ) {?>
+                                    <ul class="catalog-main__second-lvl__ul">
+                                        <?foreach ( $arPages[$arChildren['id']] as $arPage ) {?>
+                                            <li class="catalog-main__second-lvl__li">
+                                                <a class="catalog-main__second-lvl__a" href=" <?=$arPage['url_chpu']?>"><?=$arPage['name']?></a>
+                                            </li>
+                                        <?}?>
+                                    </ul>
+                                <?}?>
+                            </li>
+                        <?}?>
+                    </ul>
+                <?}?>
+            </div>
+        <?}?>
     </div>
 
     <?//$Functions -> Pre( $arItems );

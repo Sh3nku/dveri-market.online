@@ -1916,6 +1916,11 @@ main ul:not([class]) li:before {
 .slider {
     margin: -40px 0 64px;
 }
+@media ( max-width: 767px ) {
+    .slider {
+        margin-top: -14px;
+    }
+}
 
 .slide {
     display: flex;
@@ -2230,6 +2235,26 @@ main ul:not([class]) li:before {
 .catalog-main {
     -moz-column-count: 4;
     column-count: 4;
+    gap: 32px;
+}
+@media ( max-width: 1023px ) {
+    .catalog-main {
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+@media ( max-width: 767px ) {
+    .catalog-main {
+        -moz-column-count: 2;
+        column-count: 2;
+        gap: 16px;
+    }
+}
+@media ( max-width: 575px ) {
+    .catalog-main {
+        -moz-column-count: 1;
+        column-count: 1;
+    }
 }
 
 .catalog-main a {
@@ -2249,6 +2274,12 @@ main ul:not([class]) li:before {
     border-radius: 5px;
     page-break-inside: avoid;
     break-inside: avoid;
+    margin-bottom: 32px;
+}
+@media ( max-width: 767px ) {
+    .catalog-main__item-wrapper {
+        margin-bottom: 16px;
+    }
 }
 
 .catalog-main__item {
@@ -2258,6 +2289,7 @@ main ul:not([class]) li:before {
 .catalog-main__item-svg {
     width: 30px;
     height: 30px;
+    flex: 0 0 30px;
     display: flex;
     align-items: center;
     justify-content: center;
