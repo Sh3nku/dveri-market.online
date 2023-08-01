@@ -100,6 +100,9 @@ if ( $arResult['items'] ) {
                                         case 9999:
                                             $iconId = 'menu-7';
                                             break;
+                                        case 124:
+                                            $iconId = 'menu-8';
+                                            break;
                                     }?>
 
                                     <div class="menu__first-level__svg">
