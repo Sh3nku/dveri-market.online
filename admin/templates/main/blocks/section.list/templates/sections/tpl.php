@@ -37,7 +37,7 @@ if ( $arResult['items'] ) {
     );
 
     $arTagPages = $Content -> GetList(
-        array( 'name', 'h1', 'url_chpu', 'bind_section' ),
+        array( 'name', 'h1', 'url_chpu', 'bind_section', 'no_view_in_main_menu' ),
         array(
             'iblock_id' => 32
         ),
@@ -48,6 +48,8 @@ if ( $arResult['items'] ) {
     $arPages = array();
 
     foreach ( $arTagPages['items'] as $arTagPage ) {
+
+        if ( $arTagPage['no_view_in_main_menu']['code'] === 'yes' ) continue;
 
         if ( !empty( $arTagPage['bind_section'] ) ) {
 
