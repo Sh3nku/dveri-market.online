@@ -154,7 +154,7 @@ if ( $arResult['items'] ) {
 
                                 <?foreach ( $arItem['children'] as $arChildren ) {?>
                                     <li class="menu__second-level__li">
-                                        <a itemprop="url" class="menu__second-level__a | js-menu-choice" href="/katalog/<?=$arItem['code']?>/<?=$arChildren['code']?>/" data-menu_id="<?=$arChildren['id']?>">
+                                        <a itemprop="url" class="menu__second-level__a<?=!empty( $arPages[$arChildren['id']] ) ? ' | js-menu-choice' : ''?>" href="/katalog/<?=$arItem['code']?>/<?=$arChildren['code']?>/" data-menu_id="<?=$arChildren['id']?>">
                                             <span itemprop="name"><?=$arChildren['name']?></span>
 
                                             <?if ( !empty( $arPages[$arChildren['id']] ) ) {?>
