@@ -32,8 +32,8 @@ if ( !empty( $arResult['items'] ) ) {
         if ( empty( $title ) ) $title = 'Межкомнатная дверь ' . $arItem['name'] . ' ' . $arOffer['name'] . ' купить в Санкт-Петербурге | «Двери Маркет»';
         if ( empty( $description ) ) $description = 'Интернет-магазин «Двери Маркет» предлагает купить дверь ' . $arItem['name'] . ' ' . $arOffer['name'] . '. Доставка и установка. ☎ +7 (981) 718-01-08';
     } else {
-        if ( empty( $title ) ) $title = $arItem['name'] . ' купить в Санкт-Петербурге | Интернет-магазин «Двери Маркет»';
-        if ( empty( $description ) ) $description = $arItem['name'] . ' ✏ Широкий выбор ✏ Доступные цены! ☎ +7 (981) 718-01-08 Заказывайте в «Двери Маркет»! ➠';
+        if ( empty( $title ) ) $title = $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' купить в Санкт-Петербурге | Интернет-магазин «Двери Маркет»';
+        if ( empty( $description ) ) $description = $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' ✏ Широкий выбор ✏ Доступные цены! ☎ +7 (981) 718-01-08 Заказывайте в «Двери Маркет»! ➠';
     }
 
     $MAIN -> SetTitle( $title );
