@@ -127,7 +127,8 @@ $( function () {
 
     $( document ).on( 'click', '.js-in-basket', function () {
 
-        let array = [];
+        let array = [],
+            button = $( this );
 
         if ( $( '#choiceOffer' ).length && !$( this ).hasClass( 'accessories-in-basket' ) ) {
             array = $( '#choiceOffer' ).serializeArray();
@@ -142,12 +143,16 @@ $( function () {
             })
         }
 
+        ShowLoaderButton( button );
+
         $.ajax({
             url: '/admin/templates/main/helper.php',
             type: 'POST',
             data: { InBasket: array },
 
             success: function( data ) {
+
+                HideLoaderButton( button );
 
                 $( '.js-basket-count' ).text( data );
                 $( '.js-open-basket' ).trigger( 'click' )
