@@ -1,0 +1,263 @@
+@font-face {
+    font-display: swap;
+    font-family: CenturyGothic;
+    font-weight: 400;
+    font-style: normal;
+    src: local( 'CenturyGothic-Regular' ),
+    url( '../fonts/CenturyGothic-Regular.woff2' ) format( 'woff2' ),
+    url( '../fonts/CenturyGothic-Regular.woff' ) format( 'woff' ),
+    url( '../fonts/CenturyGothic-Regular.eot' ) format( 'eot' ),
+    url( '../fonts/CenturyGothic-Regular.ttf' ) format( 'ttf' );
+}
+
+@font-face {
+    font-display: swap;
+    font-family: CenturyGothic;
+    font-weight: 700;
+    font-style: normal;
+    src: local( 'CenturyGothic-Bold' ),
+    url( '../fonts/CenturyGothic-Bold.woff2' ) format( 'woff2' ),
+    url( '../fonts/CenturyGothic-Bold.woff' ) format( 'woff' ),
+    url( '../fonts/CenturyGothic-Bold.eot' ) format( 'eot' ),
+    url( '../fonts/CenturyGothic-Bold.ttf' ) format( 'ttf' );
+}
+
+body {
+    font-family: CenturyGothic, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+p {
+    margin: 0;
+}
+
+header {
+    position: static;
+    background-color: transparent;
+    display: flex;
+}
+
+.header__logo {
+    flex-grow: 1;
+}
+
+.header__logo > img {
+    height: 80px;
+}
+
+.header__socials {
+    flex-direction: column;
+    margin-right: 32px;
+}
+
+.header__socials-item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4px;
+}
+
+.header__socials-link {
+    display: flex;
+    align-items: center;
+}
+
+.header__socials-svg {
+    margin-right: 8px;
+}
+
+._icon-social-fb {
+    width: 24px;
+    height: 24px;
+    fill: #CBD3DC;
+}
+._icon-social-insta {
+    width: 24px;
+    height: 24px;
+    fill: #CBD3DC;
+}
+._icon-social-vk {
+    width: 24px;
+    height: 24px;
+    fill: #CBD3DC;
+}
+
+.header__work_time__title {
+    margin-bottom: 4px;
+}
+
+.header__work_time__text {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+}
+
+main {
+    margin-top: 0;
+}
+
+.basket {
+    margin-bottom: 32px;
+}
+
+.basket-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50px;
+}
+
+.basket-item:not( :last-child ) {
+    margin-bottom: 16px;
+}
+
+.basket-picture {
+    flex: 0 0 80px;
+    min-width: 80px;
+    margin-right: 16px;
+    display: flex;
+}
+
+.basket-description {
+    flex-grow: 1;
+    margin-right: 32px;
+}
+
+.basket-name {
+    font-weight: 700;
+}
+
+.basket-offer-name {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.basket-properties {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.basket-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 32px;
+}
+
+.basket._order .basket-count {
+    flex: 0 0 50px;
+    min-width: 50px;
+}
+
+.basket-button {
+    width: 32px;
+    min-width: 32px;
+    height: 32px;
+    background-color: var(--orange);
+    position: relative;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color .5s;
+}
+
+.basket-button:hover {
+    background-color: var(--orange-hover);
+}
+
+.basket-button:before,
+.basket-button.plus:after {
+    content: '';
+    background-color: #333333;
+    width: 10px;
+    height: 2px;
+    position: absolute;
+    left: 11px;
+    top: 15px;
+}
+
+input.basket-count-input {
+    padding: 0;
+    text-align: center;
+    background-color: inherit;
+}
+
+.basket-button.plus:after {
+    width: 2px;
+    height: 10px;
+    left: 15px;
+    top: 11px;
+}
+
+.basket-price {
+    font-weight: 700;
+    min-width: 90px;
+}
+
+.basket._order .basket-price {
+    margin-right: 0;
+}
+
+.basket-price-old {
+    text-decoration: line-through;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.basket-button-delete {
+    width: 64px;
+    height: 64px;
+    transform: rotate(45deg);
+    border-radius: 32px;
+    background-color: inherit;
+}
+
+.basket-button-delete:before,
+.basket-button-delete.plus:after {
+    width: 20px;
+    height: 4px;
+    left: 22px;
+    top: 30px;
+}
+
+.basket-button-delete.plus:after {
+    width: 4px;
+    height: 20px;
+    left: 30px;
+    top: 22px;
+}
+
+.basket-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.basket-footer-buttons {
+    align-items: flex-start;
+}
+
+.basket-footer-buttons .button:first-child {
+    margin-right: 16px;
+}
+
+.basket-footer-total {
+    text-align: right;
+}
+
+.basket-price-base-summ,
+.basket-price-discount-summ {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+.basket-price-old-summ {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+}

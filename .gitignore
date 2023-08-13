@@ -2,3 +2,6 @@
 /robots.txt
 /admin/core/classes/Includes.php
 /admin/core/classes/Content.php
+/admin/core/classes/User/User.php
+/admin/core/classes/User/Group.php
+/admin/core/classes/Includes/Asset.php

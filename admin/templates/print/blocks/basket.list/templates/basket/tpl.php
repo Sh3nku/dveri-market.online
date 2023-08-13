@@ -2,7 +2,7 @@
 
     <?if ( $arResult['items'] ) {?>
 
-        <h2>Корзина</h2>
+        <h2>Ваш заказ</h2>
 
         <div class="basket">
 
@@ -87,11 +87,7 @@
                     </div>
 
                     <div class="basket-count">
-
-                        <div class="basket-button js-basket-button" data-action="minus"></div>
-                        <input class="basket-count-input" type="text" name="product_count" value="<?=$arItem['count']?>" data-item="<?=$arItem['id']?>">
-                        <div class="basket-button plus js-basket-button" data-action="plus"></div>
-
+                        <?=$arItem['count']?>
                     </div>
 
                     <div class="basket-price">
@@ -109,12 +105,6 @@
 
                     </div>
 
-                    <div class="basket-delete">
-
-                        <div class="basket-button plus basket-button-delete" data-item="<?=$arItem['id']?>"></div>
-
-                    </div>
-
                 </div>
 
                 <?
@@ -127,13 +117,7 @@
 
         <div class="basket-footer">
 
-            <div class="basket-footer-buttons">
-
-                <a class="button" href="/order/" onclick="close_modal()">Оформить заказ</a>
-
-                <div class="button _black" onclick="close_modal()">Продолжить покупки</div>
-
-            </div>
+            <div></div>
 
             <div class="basket-footer-total">
 
@@ -165,35 +149,6 @@
             <h3>Перейдите в каталог и выберите товар.</h3>
         </div>
 
-    <?}
-
-    if (
-        \User\User::IsAuthorized()
-        && in_array( 1, \User\Group::GetGroupId( \User\User::GetId() ) )
-    ) {?>
-        <h2>Распечатать</h2>
-        <form action="/print/basket.php">
-            <div class="row">
-                <div class="col-s-6">
-                    <div class="form-label">Имя</div>
-                    <input class="grey" type="text" name="manager">
-                </div>
-
-                <div class="col-s-6">
-                    <div class="form-label">Контакт</div>
-                    <input class="grey" type="text" name="phone">
-                </div>
-
-                <div class="col-s-12">
-                    <div class="form-label">Комментарий</div>
-                    <textarea class="grey" name="comment"></textarea>
-                </div>
-
-                <div class="col-s-12">
-                    <input class="button" type="submit" value="Распечатать">
-                </div>
-            </div>
-        </form>
     <?}?>
 
 </div>

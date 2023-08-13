@@ -66,7 +66,7 @@ function ShowLoaderButton ( button ) {
 
 function HideLoaderButton ( button ) {
 
-    button.css( 'width', 'auto' ).prop( 'disabled', false ).removeClass( 'loader' )
+    button.removeAttr( 'style' ).prop( 'disabled', false ).removeClass( 'loader' )
 
 }
 
