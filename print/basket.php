@@ -14,6 +14,9 @@ $Includes::Template(
         'filter' => array(
             'cookie' => $_COOKIE['basket']
         ),
+        'order' => array(
+            'id' => 'asc'
+        ),
         array()
     )
 );?>
@@ -24,7 +27,7 @@ $Includes::Template(
         <p style="margin-bottom: 16px"><?=$_GET['comment']?></p>
     <?}?>
 
-    <p>Ваш менеджер: <b><?=$_GET['manager'] . '</b> (' . $_GET['phone'] . ')'?></p>
+    <p>Ваш менеджер: <b><?=$_GET['manager'] . '</b> ' . $_GET['phone']?></p>
 </div>
 
 <script>

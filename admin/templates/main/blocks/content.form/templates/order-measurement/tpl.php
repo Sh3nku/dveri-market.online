@@ -13,59 +13,39 @@ $arProperties = $arResult['properties']?>
             <input type="hidden" name="token_form" value="<?=$token_form?>" />
 
             <div class="measurement">
-
                 <div class="row">
-
                     <div class="col-s-4">
-
                         <div class="form-row">
-
-                            <div class="form-label"><?=$arProperties['name']['name']?></div>
-
-                            <div class="form-input"><input type="text" class="grey" name="<?=$arProperties['name']['code']?>"></div>
-
+                            <div class="form-input">
+                                <input type="text" placeholder="<?=$arProperties['name']['name']?>" name="<?=$arProperties['name']['code']?>">
+                            </div>
                         </div>
-
                     </div>
 
                     <div class="col-s-4">
-
                         <div class="form-row">
-
-                            <div class="form-label"><?=$arProperties['phone']['name']?></div>
-
-                            <div class="form-input" data-error="phone"><input type="text" class="grey" name="<?=$arProperties['phone']['code']?>"></div>
-
+                            <div class="form-input" data-error="phone">
+                                <input type="text" placeholder="<?=$arProperties['phone']['name']?>" name="<?=$arProperties['phone']['code']?>">
+                            </div>
                         </div>
-
                     </div>
 
                     <div class="col-s-4">
-
                         <div class="form-row">
-
-                            <div class="form-label"><?=$arProperties['email']['name']?></div>
-
-                            <div class="form-input"><input type="text" class="grey" name="<?=$arProperties['email']['code']?>"></div>
-
+                            <div class="form-input">
+                                <input type="text" placeholder="<?=$arProperties['email']['name']?>" name="<?=$arProperties['email']['code']?>">
+                            </div>
                         </div>
-
                     </div>
 
                     <div class="col-m-12">
-
                         <div class="form-row">
-
-                            <div class="form-label"><?=$arProperties['text']['name']?></div>
-
-                            <div class="form-input"><textarea class="grey" name="<?=$arProperties['text']['code']?>"></textarea></div>
-
+                            <div class="form-input">
+                                <textarea placeholder="<?=$arProperties['text']['name']?>" name="<?=$arProperties['text']['code']?>"></textarea>
+                            </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
 
             <div class="measurement-footer">

@@ -4,9 +4,9 @@
     --orange-rgba-3: rgba(244, 184, 76, 0.3);
     --orange-rgba-5: rgba(244, 184, 76, 0.5);
     --orange: #f4b84c;
-    --orange-hover: #DCA33B;
+    --orange-hover: #FFCC70;
     --orange-light: #eddaba;
-    --red: #ed5565;
+    --red: #FF0404;
     --white: #FFFFFF
 }
 
@@ -220,7 +220,7 @@ a {
 
 .button {
     font-family: inherit;
-    background-color: #f4b84c;
+    background-color: var( --orange );
     padding: 13px 15px;
     display: inline-flex;
     align-items: center;
@@ -237,7 +237,7 @@ a {
     transition: background-color .3s ease;
 }
 .button:hover {
-    background-color: #DCA33B;
+    background-color: var( --orange-hover );
 }
 .button._with-icon {
     padding: 13px 35px;
@@ -598,35 +598,67 @@ input[type=text],
 input[type=password],
 textarea {
     font-family: inherit;
-    font-size: 16px;
-    background-color: #fff;
-    line-height: 18px;
-    padding: 16px 24px;
+    font-size: 14px;
+    line-height: 130%;
+    background-color: #F4F7FB;
+    color: #000000;
+    padding: 21px 20px;
     border: 0;
     outline: 0;
-    border-radius: 4px;
+    border-radius: 5px;
     width: 100%;
+    transition: box-shadow .3s ease;
+}
+
+@media ( max-width: 767px ) {
+    input[type=text],
+    input[type=password],
+    textarea {
+        padding: 16px 20px;
+    }
 }
 
 textarea {
     resize: vertical;
 }
 
-input[type=text].grey,
-input[type=password].grey,
-textarea.grey {
-    background-color: #F4F7FB;
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus {
+    box-shadow: 0 0 0 1px #BFCEE1;
 }
 
-input[type=text].grey:focus,
-input[type=password].grey:focus,
-textarea.grey:focus {
-    background-color: #FFFFFF;
-    outline: 1px solid #DCA33B;
+::-webkit-input-placeholder {
+    color: #657493;
+}
+::-moz-placeholder {
+    color: #657493;
+}
+:-moz-placeholder {
+    color: #657493;
+}
+:-ms-input-placeholder {
+    color: #657493;
 }
 
-.errors-item {
-    outline: 1px solid var( --red );
+.errors-item input[type=text],
+.errors-item input[type=password],
+.errors-item textarea {
+    box-shadow: 0 0 0 1px var( --red );
+}
+
+.form-errors-item {
+    color: var( --red );
+    font-size: 14px;
+    line-height: 130%;
+    position: absolute;
+    top: calc( 100% + 5px );
+}
+
+@media ( max-width: 767px ) {
+    .form-errors-item {
+        font-size: 13px;
+    }
 }
 
 .container-placeholder {
@@ -683,12 +715,6 @@ textarea.grey:focus {
 
 .form-errors p {
     margin-bottom: 0;
-}
-
-.form-errors-item {
-    color: var( --red );
-    font-size: 12px;
-    line-height: 14px;
 }
 
 /* ------ Шапка ------ */
@@ -1707,6 +1733,7 @@ input[type=text].search-popup__input {
 
 .form-row {
     margin-bottom: 32px;
+    position: relative;
 }
 
 .form-label {
@@ -2972,12 +2999,12 @@ input[type=submit].filter-button {
 }
 
 .product-property-radio + label:hover {
-    background-color: #ffe8c4;
+    background-color: #FFCC70;
     transition: background-color .3s;
 }
 
 .product-property-radio:checked + label {
-    background-color: #f4b84c;
+    background-color: #F4B84C;
     transition: background-color .3s;
 }
 

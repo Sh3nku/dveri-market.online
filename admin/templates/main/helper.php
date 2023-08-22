@@ -177,6 +177,9 @@ if ( isset( $_POST['OpenBasket'] ) ) {
             'filter' => array(
                 'cookie' => $_COOKIE['basket']
             ),
+            'order' => array(
+                'id' => 'asc'
+            ),
             array()
         )
     );
