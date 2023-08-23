@@ -46,7 +46,7 @@
 
                         if ( $arOffer['available']['code'] == 'order' ) {?>
 
-                            <div class="catalog-item-available <?=$arOffer['available']['code']?>"><?=$arOffer['available']['name']?></div>
+                            <div class="catalog-item-available _<?=$arOffer['available']['code']?>"><?=$arOffer['available']['name']?></div>
 
                         <?}?>
 

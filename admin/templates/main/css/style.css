@@ -2295,6 +2295,14 @@ main ul:not([class]) li:before {
     margin-bottom: 32px;
 }
 
+.main-filter input[type=text] {
+    background-color: var( --white );
+    font-size: 16px;
+    line-height: 18px;
+    padding: 16px 24px;
+    color: #333333;
+}
+
 .filter-name {
     font-size: 28px;
     line-height: 36px;
@@ -2640,17 +2648,17 @@ input[type=submit].filter-button {
     background-color: #20AE3B;
 }
 
-.catalog-item-available.order {
+.catalog-item-available._order {
     color: #ffffff;
     background-color: #f4b84c;
 }
 
-.catalog-item-available.stock {
+.catalog-item-available._stock {
     color: #ffffff;
     background-color: #20AE3B;
 }
 
-.catalog-item-available.soon {
+.catalog-item-available._soon {
     color: #ffffff;
     background-color: #f4b84c;
 }
@@ -3422,6 +3430,7 @@ input[type=text].basket__item-count__input:focus {
     line-height: 26px;
     font-weight: 400;
     margin-right: 20px;
+    text-decoration: line-through;
 }
 
 /* Оформление заказа */

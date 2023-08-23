@@ -30,17 +30,17 @@ if ( $arResult ) {?>
 
                         <?if ( $filter_type == 'string' || $filter_type == 'number' || $filter_type == 'number_dot' ) {?>
 
-                            <div class="col-m-3 filter-item-col ">
+                            <div class="col-m-3">
                                 <input name="<?=$arProperty['code']?>" value="<?=$arParams[$arProperty['code']]?>" />
                             </div>
 
                         <?} else if ( $filter_type == 'range' && ( $arProperty['values']['min'] || $arProperty['values']['max'] ) && ( $arProperty['values']['min'] != $arProperty['values']['max'] ) ) {?>
 
-                            <div class="col-m-3 filter-item-col ">
+                            <div class="col-m-3">
                                 <input class="js-filter-range" type="text" name="<?=$arProperty['code']?>[min]" placeholder="Цена от <?=number_format( $arProperty['values']['min'], 0, '', ' ' )?>" value="<?=$arParams[$arProperty['code']]['min']?>" />
                             </div>
 
-                            <div class="col-m-3 filter-item-col ">
+                            <div class="col-m-3">
                                 <input class="js-filter-range" type="text" name="<?=$arProperty['code']?>[max]" placeholder="Цена до <?=number_format( $arProperty['values']['max'], 0, '', ' ' )?>" value="<?=$arParams[$arProperty['code']]['max']?>" />
                             </div>
 
@@ -48,7 +48,7 @@ if ( $arResult ) {?>
 
                             if ( $arProperty['values'] ) {?>
 
-                                <div class="col-m-3 filter-item-col ">
+                                <div class="col-m-3">
 
                                     <div class="catalog-select">
 

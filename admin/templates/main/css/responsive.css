@@ -689,11 +689,6 @@
         margin-bottom: 16px;
     }
 
-    .filter-item-col {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-
     .basket-count {
         margin-top: 16px;
         margin-left: 0;

@@ -130,8 +130,8 @@
 
                 <?} else {?>
 
-                    <div id="BasketSumm" class="basket-price-base basket-price-old basket-price-base-summ basket-price-old-summ"><?=$Functions -> NumberFormat( $summ, 2, '.', ' ' )?>₽</div>
-                    <div id="BasketSummWithDiscount" class="basket-price-discount basket-price-discount-summ"><?=$Functions -> NumberFormat( $summ_with_discount, 2, '.', ' ' )?>₽</div>
+                    <div id="BasketSumm" class="basket-price-old-summ"><?=$Functions -> NumberFormat( $summ, 2, '.', ' ' )?>₽</div>
+                    <div id="BasketSummWithDiscount" class="basket-price-discount-summ"><?=$Functions -> NumberFormat( $summ_with_discount, 2, '.', ' ' )?>₽</div>
 
                 <?}?>
 

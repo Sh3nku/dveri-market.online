@@ -259,8 +259,8 @@
 
                     <?} else {?>
 
-                        <div id="BasketSumm" class="basket-price-base basket-price-old basket-price-base-summ basket-price-old-summ js-order-summ"><?=$Functions -> NumberFormat( $summ, 2, '.', ' ' )?>₽</div>
-                        <div id="BasketSummWithDiscount" class="basket-price-discount basket-price-discount-summ js-order-summ-width-discount"><?=$Functions -> NumberFormat( $summ_with_discount, 2, '.', ' ' )?>₽</div>
+                        <div id="BasketSumm" class="basket-price-old-summ js-order-summ"><?=$Functions -> NumberFormat( $summ, 2, '.', ' ' )?>₽</div>
+                        <div id="BasketSummWithDiscount" class="basket-price-discount-summ js-order-summ-width-discount"><?=$Functions -> NumberFormat( $summ_with_discount, 2, '.', ' ' )?>₽</div>
 
                     <?}?>
                 </div>
@@ -274,6 +274,8 @@
             </div>
         </form>
 
+    <?} else {?>
+        <h3>Перейдите в <a href="/katalog/">каталог</a> и выберите товар.</h3>
     <?}?>
 </div>
 

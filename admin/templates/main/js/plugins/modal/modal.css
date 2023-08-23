@@ -32,3 +32,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.modal-close svg {
+    transition: transform .3s ease;
+}
+
+.modal-close:hover svg {
+    transform: rotate( 90deg );
+}
