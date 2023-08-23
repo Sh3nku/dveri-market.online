@@ -33,7 +33,7 @@ function open_modal ( data, array ) {
 
     overlay.html(
         '<div class="modal' + ( ( settings.classes ) ? ' ' + settings.classes : '' ) + '"' + ( ( settings.width ) ? ' style="width: 100%; max-width: ' + settings.width + 'px"' : '' ) + '>' +
-        '<div class="modal-close"></div>' +
+        '<div class="modal-close"><svg class="_icon-close-modal"><use xlink:href="/admin/templates/main/images/icons/close-modal.svg#close-modal"></use></svg></div>' +
         '<div class="modal-content">' + data + '</div>' +
         '</div>'
     );

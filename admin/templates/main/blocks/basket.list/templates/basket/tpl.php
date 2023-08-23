@@ -127,32 +127,28 @@
 
         <div class="basket-footer">
 
+            <div class="basket-footer-total">
+
+                <div class="basket-footer-text">Итоговая цена:</div>
+
+                <?if ( $summ === $summ_with_discount ) {?>
+
+                    <div id="BasketSumm" class="basket-price-base basket-price-base-summ"><?=$Functions -> NumberFormat( $summ, 2, '.', ' ' )?>₽</div>
+
+                <?} else {?>
+
+                    <div id="BasketSumm" class="basket-price-base basket-price-old basket-price-base-summ basket-price-old-summ"><?=$Functions -> NumberFormat( $summ, 2, '.', ' ' )?>₽</div>
+                    <div id="BasketSummWithDiscount" class="basket-price-discount basket-price-discount-summ"><?=$Functions -> NumberFormat( $summ_with_discount, 2, '.', ' ' )?>₽</div>
+
+                <?}?>
+
+            </div>
+
             <div class="basket-footer-buttons">
 
                 <a class="button" href="/order/" onclick="close_modal()">Оформить заказ</a>
 
                 <div class="button _black" onclick="close_modal()">Продолжить покупки</div>
-
-            </div>
-
-            <div class="basket-footer-total">
-
-                <div class="basket-footer-text">Итоговая цена</div>
-
-                <div class="basket-footer-price">
-
-                    <?if ( $summ === $summ_with_discount ) {?>
-
-                        <div id="BasketSumm" class="basket-price-base basket-price-base-summ"><?=$Functions -> NumberFormat( $summ, 2, '.', ' ' )?>₽</div>
-
-                    <?} else {?>
-
-                        <div id="BasketSumm" class="basket-price-base basket-price-old basket-price-base-summ basket-price-old-summ"><?=$Functions -> NumberFormat( $summ, 2, '.', ' ' )?>₽</div>
-                        <div id="BasketSummWithDiscount" class="basket-price-discount basket-price-discount-summ"><?=$Functions -> NumberFormat( $summ_with_discount, 2, '.', ' ' )?>₽</div>
-
-                    <?}?>
-
-                </div>
 
             </div>
 

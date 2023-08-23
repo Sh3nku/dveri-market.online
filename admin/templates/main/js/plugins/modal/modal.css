@@ -17,35 +17,18 @@
     box-shadow: 0 0 20px rgba( 0, 0, 0, .4 );
     opacity: 0;
     position: absolute;
-    border-radius: 1px;
+    border-radius: 10px;
     margin-bottom: 30px;
 }
 
 .modal-close {
-    background-color: #f4b84c;
-    width: 40px;
-    height: 40px;
+    width: 26px;
+    height: 26px;
     position: absolute;
-    top: -50px;
-    right: 0;
+    top: 25px;
+    right: 25px;
     cursor: pointer;
-}
-
-.modal-close:before,
-.modal-close:after {
-    content: '';
-    position: absolute;
-    height: 2px;
-    background-color: #fff;
-    width: 70%;
-    top: 19px;
-    left: 6px;
-}
-
-.modal-close:before {
-    transform: rotate( 45deg );
-}
-
-.modal-close:after {
-    transform: rotate( -45deg );
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

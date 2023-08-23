@@ -23,7 +23,7 @@ function ShowErrorBlock ( obj, errors ) {
 
 function ShowErrorItems ( errors ) {
 
-    //console.log( errors );
+    console.log( errors );
 
     $( '[data-error]' ).removeClass( 'errors-item' ).next( '.form-errors-item' ).remove();
 
@@ -32,12 +32,19 @@ function ShowErrorItems ( errors ) {
 
     $.each( errors, function( key, item ) {
 
-        let target = $( '[data-error=' + item['block'] + ']' ),
-            offset_top = target.offset().top;
+        let target = '';
+
+        if ( item.input ) {
+            target = $( '[name="' + item.input + '"]' );
+            target.parent( '.form-input' ).addClass( 'errors-item' ).append( '<span class="form-errors-item">' + item['text'] + '</span>' );
+        } else {
+            target = $( '[data-error=' + item['block'] + ']' );
+            target.append( '<span class="form-errors-item">' + item['text'] + '</span>' );
+        }
+
+        let offset_top = target.offset().top;
 
         if ( offset_top < upper ) upper = offset_top;
-
-        target.addClass( 'errors-item' ).after( '<span class="form-errors-item">' + item['text'] + '</span>' )
 
     });
 
@@ -464,10 +471,21 @@ $( function () {
         }
 
     });
-})
+});
 
 $( document ).on( 'focus', '.errors-item', function () {
-    $( this ).removeClass( 'errors-item' ).next( 'span' ).remove();
+    $( this )
+        .removeClass( 'errors-item' )
+        .children( 'span' )
+        .fadeOut( 200 );
+});
+
+$( document ).on( 'change', '[type=radio]', function () {
+    let name = $( this ).attr( 'name' );
+
+    $( '[data-error="' + name + '"]' )
+        .children( 'span' )
+        .fadeOut( 200 );
 });
 
 $( window ).one( 'load', function() {

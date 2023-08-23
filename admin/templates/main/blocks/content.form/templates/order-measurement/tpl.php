@@ -15,34 +15,26 @@ $arProperties = $arResult['properties']?>
             <div class="measurement">
                 <div class="row">
                     <div class="col-s-4">
-                        <div class="form-row">
-                            <div class="form-input">
-                                <input type="text" placeholder="<?=$arProperties['name']['name']?>" name="<?=$arProperties['name']['code']?>">
-                            </div>
+                        <div class="form-input">
+                            <input type="text" placeholder="<?=$arProperties['name']['name']?>" name="<?=$arProperties['name']['code']?>">
                         </div>
                     </div>
 
                     <div class="col-s-4">
-                        <div class="form-row">
-                            <div class="form-input" data-error="phone">
-                                <input type="text" placeholder="<?=$arProperties['phone']['name']?>" name="<?=$arProperties['phone']['code']?>">
-                            </div>
+                        <div class="form-input">
+                            <input type="text" placeholder="<?=$arProperties['phone']['name']?>" name="<?=$arProperties['phone']['code']?>" data-error="phone">
                         </div>
                     </div>
 
                     <div class="col-s-4">
-                        <div class="form-row">
-                            <div class="form-input">
-                                <input type="text" placeholder="<?=$arProperties['email']['name']?>" name="<?=$arProperties['email']['code']?>">
-                            </div>
+                        <div class="form-input">
+                            <input type="text" placeholder="<?=$arProperties['email']['name']?>" name="<?=$arProperties['email']['code']?>">
                         </div>
                     </div>
 
                     <div class="col-m-12">
-                        <div class="form-row">
-                            <div class="form-input">
-                                <textarea placeholder="<?=$arProperties['text']['name']?>" name="<?=$arProperties['text']['code']?>"></textarea>
-                            </div>
+                        <div class="form-input">
+                            <textarea placeholder="<?=$arProperties['text']['name']?>" name="<?=$arProperties['text']['code']?>"></textarea>
                         </div>
                     </div>
                 </div>

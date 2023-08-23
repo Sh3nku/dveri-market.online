@@ -121,10 +121,6 @@
         overflow: hidden;
     }
 
-    .container-small {
-        max-width: none;
-    }
-
     .aside-wrapper {
         transform: translateX( -350px );
         box-shadow: none;
@@ -662,10 +658,6 @@
         padding: 0 32px 0 0;
     }
 
-    .basket-item:not( :last-child ) {
-        margin-bottom: 32px;
-    }
-
     .basket-picture {
         position: static;
     }
@@ -737,10 +729,6 @@
     .filter-item-col {
         flex: 0 0 100%;
         max-width: 100%;
-    }
-
-    .product-property-radio + label {
-        padding: 8px 16px;
     }
 
     .basket-count {
