@@ -23,7 +23,7 @@ if ( $_POST['formSend'] ) {
     if ( empty( $arResult['phone'] ) ) {
 
         $answer['errors'][] = array(
-            'block' => 'phone',
+            'input' => 'phone',
             'text' => 'Заполните Телефон'
         );
 
