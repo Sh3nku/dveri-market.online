@@ -40,7 +40,25 @@ function open_modal ( data, array ) {
 
     var modal = $( '.modal' );
 
+    center_modal();
+
     modal.animate( { 'opacity': 1 }, 300 )
+
+}
+
+function center_modal() {
+
+    let modal = $( '.modal' ),
+        modalHeight = modal.outerHeight() + 100,
+        windowHeight = $( window ).height();
+
+    let top = 0;
+
+    if ( windowHeight > modalHeight ) {
+        top = ( windowHeight - modalHeight ) / 3;
+    }
+
+    modal.css( 'top', top );
 
 }
 
