@@ -21,6 +21,13 @@ $arProperties = $arResult['properties']?>
         </div>
 
         <div class="col-s-12">
+            <div class="form-input">
+                <input id="Privacy" type="checkbox">
+                <label for="Privacy">Я подтверждаю свое согласие на обработку персональных данных и согласие с <a href="/privacy-policy.php">Политикой конфидециальности</a></label>
+            </div>
+        </div>
+
+        <div class="col-s-12">
             <input class="button" type="submit" value="Отправить" />
         </div>
     </div>
