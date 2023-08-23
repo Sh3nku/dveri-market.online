@@ -3084,6 +3084,35 @@ input[type=submit].filter-button {
     border: none;
 }
 
+.product-property-radio {
+    display: none;
+}
+
+.product-property-radio + label {
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 3px;
+    padding: 12px 20px;
+    display: inline-block;
+}
+
+.product-property-radio._order + label {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 8px 16px;
+}
+
+.product-property-radio + label:hover {
+    background-color: #ffe8c4;
+    transition: background-color .3s;
+}
+
+.product-property-radio:checked + label {
+    background-color: #f4b84c;
+    transition: background-color .3s;
+}
+
 .product-property-radio-description {
     font-size: 14px;
     line-height: 120%;

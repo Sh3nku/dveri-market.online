@@ -504,7 +504,7 @@ $( function () {
             block.removeAttr( 'style' ).removeClass( '_open' );
             button.text( 'Показать всё' );
         } else {
-            block.height( height ).addClass( '_open' );
+            block.height( height - 16 ).addClass( '_open' );
             button.text( 'Свернуть' );
         }
 
