@@ -1818,6 +1818,8 @@ input[type=text].search-popup__input {
 .errors-item input[type=text],
 .errors-item input[type=password],
 .errors-item textarea {
+    -webkit-appearance: none;
+    -webkit-box-shadow: 0 0 0 1px var( --red );
     box-shadow: 0 0 0 1px var( --red );
 }
 
@@ -1829,10 +1831,11 @@ input[type=text].search-popup__input {
     top: calc( 100% + 5px );
     left: 0;
 }
-
 @media ( max-width: 767px ) {
     .form-errors-item {
-        font-size: 13px;
+        font-size: 12px;
+        line-height: 110%;
+        top: calc( 100% + 2px );
     }
 }
 
