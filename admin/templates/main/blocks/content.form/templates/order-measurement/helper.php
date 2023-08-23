@@ -20,6 +20,18 @@ if ( $_POST['formSend'] ) {
 
     }
 
+    if ( empty( $arResult['email'] ) ) {
+        $answer['errors'][] = array(
+            'input' => 'email',
+            'text' => 'Заполните E-mail'
+        );
+    } else if ( !$Functions -> ValidationEmail( $arResult['email'] ) ) {
+        $answer['errors'][] = array(
+            'input' => 'email',
+            'text' => 'E-mail заполнен некорректно'
+        );
+    }
+
     if ( empty( $arResult['phone'] ) ) {
 
         $answer['errors'][] = array(

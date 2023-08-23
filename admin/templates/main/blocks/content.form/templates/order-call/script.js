@@ -33,11 +33,12 @@ $( function () {
                     open_modal(
                         '<div class="p30">'+
                         '<h1>Сообщение отправлено</h1>' +
-                        '<p class="mb-32">Мы свяжемся с вами в ближайшее время</p>' +
+                        '<p class="mb-32" style="text-align: center">Мы свяжемся с вами в ближайшее время</p>' +
                         '<input class="button" type="submit" value="Закрыть" onclick="close_modal()">' +
                         '</div>',
                         {
-                            width: 400
+                            width: 500,
+                            classes: '_small'
                         }
                     );
 

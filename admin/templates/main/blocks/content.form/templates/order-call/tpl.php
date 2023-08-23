@@ -5,7 +5,7 @@ $arProperties = $arResult['properties']?>
 <form class="p30" id="orderForm" autocomplete="off">
     <h1>Заказать звонок</h1>
 
-    <input type="hidden" name="token_form" value="<?=$token_form?>" />
+    <input type="hidden" name="token_form" value="<?=$arResult['token_form']?>" />
 
     <div class="row">
         <div class="col-s-12">
@@ -32,3 +32,5 @@ $arProperties = $arResult['properties']?>
         </div>
     </div>
 </form>
+
+<?$Functions -> Pre( $arResult );?>

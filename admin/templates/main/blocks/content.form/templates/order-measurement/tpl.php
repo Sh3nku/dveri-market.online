@@ -10,7 +10,7 @@ $arProperties = $arResult['properties']?>
 
             <h2>Заказать замер</h2>
 
-            <input type="hidden" name="token_form" value="<?=$token_form?>" />
+            <input type="hidden" name="token_form" value="<?=$arResult['token_form']?>" />
 
             <div class="measurement">
                 <div class="row">
