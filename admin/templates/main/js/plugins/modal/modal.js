@@ -40,32 +40,7 @@ function open_modal ( data, array ) {
 
     var modal = $( '.modal' );
 
-    center_modal();
-
     modal.animate( { 'opacity': 1 }, 300 )
-
-}
-
-function center_modal() {
-
-    var wd, wm, hd, hm, left, top,
-        p = $( '.modal' );
-
-    wd = $( window ).width();
-    wm = p.outerWidth( true );
-
-    left = wd - wm;
-
-    hd = $( window ).height();
-    hm = p.outerHeight( true );
-
-    if ( hm > hd ) {
-        top = '50px';
-    } else {
-        top = ( hd - hm ) / 3 + 'px';
-    }
-
-    p.css( { 'left': left / 2 + 'px', 'top': top } );
 
 }
 
@@ -95,11 +70,5 @@ $( function () {
         }
 
     });
-
-    $( window ).on( 'resize', function () {
-
-        center_modal()
-
-    })
 
 });

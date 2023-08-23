@@ -123,31 +123,31 @@
             <h2>Контактные данные</h2>
 
             <div class="row">
-                <div class="col-s-4">
+                <div class="col-m-4">
                     <div class="form-input">
                         <input type="text" name="last_name" placeholder="Фамилия">
                     </div>
                 </div>
 
-                <div class="col-s-4">
+                <div class="col-m-4">
                     <div class="form-input">
                         <input type="text" name="first_name" placeholder="Имя">
                     </div>
                 </div>
 
-                <div class="col-s-4">
+                <div class="col-m-4">
                     <div class="form-input">
                         <input type="text" name="middle_name" placeholder="Отчество">
                     </div>
                 </div>
 
-                <div class="col-s-6">
+                <div class="col-m-6">
                     <div class="form-input">
                         <input type="text" name="email" placeholder="E-mail" data-error="email">
                     </div>
                 </div>
 
-                <div class="col-s-6">
+                <div class="col-m-6">
                     <div class="form-input">
                         <input type="text" name="phone" placeholder="Телефон" data-error="phone">
                     </div>
@@ -166,7 +166,7 @@
 
                         <?foreach ( $arResult['payments'] as $key => $arPayment ) {?>
 
-                            <div class="col-s-4">
+                            <div class="col-m-4">
 
                                 <input class="_big" type="radio" name="payment" id="Payment_<?=$arPayment['code']?>" value="<?=$arPayment['code']?>">
                                 <label for="Payment_<?=$arPayment['code']?>">
@@ -196,11 +196,11 @@
 
                         <?foreach ( $arResult['deliveries'] as $key => $arDelivery ) {?>
 
-                            <div class="col-s-4">
+                            <div class="col-m-4">
 
                                 <input class="_big" type="radio" name="delivery" id="Delivery_<?=$arDelivery['code']?>" value="<?=$arDelivery['code']?>">
                                 <label for="Delivery_<?=$arDelivery['code']?>">
-                                    <?=$arDelivery['name'] . ( ( $arDelivery['price'] > 0 ) ? ' <span>' . $Functions -> NumberFormat( $arDelivery['price'], 2, '.', ' ' ) . ' р.</span>' : '' )?>
+                                    <?=$arDelivery['name'] . ( ( $arDelivery['price'] > 0 ) ? ' ' . $Functions -> NumberFormat( $arDelivery['price'], 2, '.', ' ' ) . ' р.' : '' )?>
                                 </label>
 
                                 <?=( ( !empty( $arDelivery['description'] ) ) ? '<div class="product-property-radio-description">' . $arDelivery['description'] . '</div>' : '' )?>

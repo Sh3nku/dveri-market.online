@@ -390,14 +390,6 @@
         margin-right: 0;
     }
 
-    .basket-footer {
-        flex-direction: column-reverse;
-    }
-
-    .basket-footer-total {
-        margin-bottom: 16px;
-    }
-
 }
 
 @media ( max-width: 600px ) {
@@ -661,20 +653,6 @@
         height: 10px;
         left: 15px;
         top: 11px;
-    }
-
-    .basket-footer-buttons {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .basket-footer-buttons .button {
-        width: 100%;
-        text-align: center;
-    }
-
-    .basket-footer-buttons .button:first-child {
-        margin-bottom: 8px;
     }
 
 }
