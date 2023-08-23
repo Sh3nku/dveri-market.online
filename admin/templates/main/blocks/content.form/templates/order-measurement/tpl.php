@@ -22,7 +22,7 @@ $arProperties = $arResult['properties']?>
 
                     <div class="col-s-4">
                         <div class="form-input">
-                            <input type="text" placeholder="<?=$arProperties['phone']['name']?>" name="<?=$arProperties['phone']['code']?>" data-error="phone">
+                            <input type="tel" placeholder="<?=$arProperties['phone']['name']?>" name="<?=$arProperties['phone']['code']?>" data-error="phone">
                         </div>
                     </div>
 

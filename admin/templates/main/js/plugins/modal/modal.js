@@ -42,7 +42,11 @@ function open_modal ( data, array ) {
 
     center_modal();
 
-    modal.animate( { 'opacity': 1 }, 300 )
+    modal.animate( { 'opacity': 1 }, 300 );
+
+    document.querySelectorAll( 'input[type=tel]' ).forEach( e => IMask( e, {
+        mask: '+{7} ( 000 ) 000-00-00'
+    }));
 
 }
 

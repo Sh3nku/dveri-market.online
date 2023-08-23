@@ -70,6 +70,8 @@
         </div>
     </div>
 
+    <script src="<?=TPL . '/js/imask.js'?>"></script>
+
 </body>
 
 </html>

@@ -147,6 +147,10 @@ function endProgressBar () {
 
 $( function () {
 
+    document.querySelectorAll( 'input[type=tel]' ).forEach( e => IMask( e, {
+        mask: '+{7} ( 000 ) 000-00-00'
+    }));
+
     let scrollWidth = window.innerWidth - document.documentElement.clientWidth;
 
     $( '.js-open-basket' ).on( 'click', function () {
@@ -221,7 +225,8 @@ $( function () {
                 open_modal(
                     data,
                     {
-                        width: 400
+                        width: 500,
+                        classes: '_small'
                     }
                 );
 

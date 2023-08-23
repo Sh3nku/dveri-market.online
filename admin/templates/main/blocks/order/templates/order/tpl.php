@@ -149,7 +149,7 @@
 
                 <div class="col-m-6">
                     <div class="form-input">
-                        <input type="text" name="phone" placeholder="Телефон" data-error="phone">
+                        <input type="tel" name="phone" placeholder="Телефон" data-error="phone">
                     </div>
                 </div>
             </div>

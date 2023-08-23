@@ -244,6 +244,13 @@ a {
     overflow: hidden;
     transition: background-color .3s ease;
 }
+
+@media ( max-width: 575px ) {
+    .button {
+        width: 100%;
+    }
+}
+
 .button:hover {
     background-color: var( --orange-hover );
 }
@@ -507,77 +514,9 @@ a {
 
 /* ----- Checkbox & Radiobox ----- */
 
-/*
-.radiobox + label {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    line-height: 36px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.radiobox.checkbox_flex + label {
-    display: flex;
-}
-
-.radiobox + label:before {
-    content: '';
-    width: 32px;
-    height: 32px;
-    background-color: #fff;
-    border: 1px solid #eaedef;
-    border-radius: 5px;
-    margin-right: 10px;
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 2px;
-}
-
-.radiobox + label:before {
-    border-radius: 18px;
-    width: 36px;
-    height: 36px;
-}
-
-.radiobox + label:before {
-    flex: 0 0 16px;
-    margin-top: 2px;
-}
-
-.radiobox + label:before {
-    flex: 0 0 20px
-}
-
-.radiobox + label:after {
-    content: '';
-    width: 6px;
-    height: 11px;
-    position: absolute;
-    left: 13px;
-    top: 12px;
-    transform: rotate( 45deg );
-}
-
-.radiobox.checkbox_flex + label:after {
-    top: 4px;
-}
-
-.radiobox:checked + label:after {
-    border-bottom: 0;
-    border-right: 0;
-    width: 16px;
-    height: 16px;
-    background-color: #f4b84c;
-    transform: none;
-    border-radius: 8px;
-    top: 12px;
-    left: 10px;
-}*/
-
 input[type=text],
 input[type=password],
+input[type=tel],
 textarea {
     font-family: inherit;
     font-size: 14px;
@@ -595,6 +534,7 @@ textarea {
 @media ( max-width: 767px ) {
     input[type=text],
     input[type=password],
+    input[type=tel],
     textarea {
         padding: 16px 20px;
     }
@@ -606,6 +546,7 @@ textarea {
 
 input[type=text]:focus,
 input[type=password]:focus,
+input[type=tel]:focus,
 textarea:focus {
     box-shadow: 0 0 0 1px #BFCEE1;
 }
@@ -792,51 +733,6 @@ input[type=checkbox]:checked + label:before {
 input[type=checkbox]:checked + label:after {
     background: url( ../images/icons/check.svg ) no-repeat center;
     background-size: 14px;
-}
-
-.container-placeholder {
-    position: relative;
-    width: 100%;
-    border: 1px solid rgba( 255, 255, 255, .6 );
-    background-color: rgba( 255, 255, 255, .5 );
-    border-radius: 4px;
-}
-
-.container-placeholder input[type=text],
-.container-placeholder input[type=password],
-.container-placeholder textarea {
-    padding: 26px 24px 10px;
-    width: 100%;
-    border: none;
-    background-color: transparent;
-    font-size: 16px;
-    line-height: 16px;
-}
-
-.container-placeholder label {
-    font-size: 16px;
-    line-height: 16px;
-    pointer-events: none;
-    position: absolute;
-    transition: top .3s, font-size .3s, font-weight .3s;
-    top: 20px;
-    left: 24px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: calc( 100% - 20px );
-}
-
-.container-placeholder.is-active label,
-.container-placeholder input[type=text]:focus + label,
-.container-placeholder input[type=password]:focus + label,
-.container-placeholder textarea:focus + label,
-.container-placeholder input[type=text]:not( :placeholder-shown ) + label,
-.container-placeholder input[type=password]:not( :placeholder-shown ) + label,
-.container-placeholder textarea:not( :placeholder-shown ) + label {
-    top: 5px;
-    font-size: 12px;
-    max-width: calc( 100% - 40px );
 }
 
 .form-errors {
@@ -1881,6 +1777,7 @@ input[type=text].search-popup__input {
 
 .errors-item input[type=text],
 .errors-item input[type=password],
+.errors-item input[type=tel],
 .errors-item textarea {
     -webkit-appearance: none;
     -webkit-box-shadow: 0 0 0 1px var( --red );
@@ -3822,6 +3719,17 @@ input[type=text].basket__item-count__input:focus {
     line-height: 14px;
     margin-bottom: 4px;
     opacity: .5;
+}
+
+/* ----- Модальное окно ----- */
+
+.modal._small h1 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.modal._small .button {
+    width: 100%;
 }
 
 /* ------ 404 ------ */
