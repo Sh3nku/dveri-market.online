@@ -1,3 +1,41 @@
+function basketRecalculate ( array ) {
+
+    $.ajax({
+        url: '/admin/templates/main/helper.php',
+        async: false,
+        type: 'POST',
+        data: { basketEdit: array },
+
+        success: function( data ) {
+
+            let answer = JSON.parse( data );
+
+            console.log( answer );
+
+            if ( !answer.errors ) {
+
+                let item = answer.success.item,
+                    summ = answer.success.summ;
+
+                if ( item.discount_price ) {
+                    $( '.basket__item-prices__old[data-item="' + answer.success.id + '"]' ).text( item.price );
+
+                } else {
+                    $( '.basket__item-prices__base[data-item="' + answer.success.id + '"]' ).text( item.price );
+                }
+
+                $( '.header-basket-count' ).text( answer.success.basket_count );
+                $( '#BasketSumm' ).text( summ.price );
+
+                if ( summ.price !== summ.discount_price ) $( '#BasketSummWithDiscount' ).text( summ.discount_price )
+
+            }
+
+        }
+    });
+
+}
+
 function ShowErrorBlock ( obj, errors ) {
 
     let block = obj.prev( '.form-errors' );
@@ -468,6 +506,93 @@ $( function () {
         } else {
             block.height( height ).addClass( '_open' );
             button.text( 'Свернуть' );
+        }
+
+    });
+
+    $( document ).off( 'click', '.basket-button-delete' ).on( 'click', '.basket-button-delete', function () {
+
+        let obj = $( this ).parents( '.basket__item' );
+
+        $.ajax({
+            url: '/admin/templates/main/helper.php',
+            async: false,
+            type: 'POST',
+            data: { basketDelete: $( this ).data( 'item' ) },
+
+            success: function( data ) {
+
+                console.log( data );
+
+                let answer = JSON.parse( data );
+
+                console.log( answer );
+
+                if ( !answer.errors ) {
+
+                    let basket_count = answer.success.basket_count;
+
+                    if ( basket_count > 0 ) {
+
+                        obj.remove();
+
+                        let summ = answer.success.summ;
+
+                        $( '#BasketSumm' ).text( summ.price );
+
+                        if ( summ.price !== summ.discount_price ) {
+                            $( '#BasketSummWithDiscount' ).text( summ.discount_price )
+                        } else {
+
+                            $( '#BasketSummWithDiscount' ).remove();
+                            $( '#BasketSumm' ).removeClass( 'basket-price-old-summ basket-price-old' )
+
+                        }
+
+                    } else {
+
+                        let basket_wrapper = $( '.basket-wrapper' ),
+                            tpl = `<h3>Перейдите в каталог и выберите товар.</h3>`;
+
+                        if ( basket_wrapper.length ) {
+                            basket_wrapper.html( tpl );
+                        } else {
+                            $( '.order' ).html( tpl );
+                        }
+
+                    }
+
+                    $( '.header-basket-count' ).text( basket_count );
+
+                }
+
+            }
+        });
+
+        return false;
+
+    });
+
+    $( document ).on( 'click', '.js-basket-button', function () {
+
+        let input = $( this ).parent().children( '.basket__item-count__input' ),
+            c = +input.val(),
+            a = $( this ).attr( 'data-action' ),
+            n;
+
+        if ( a === 'minus' && ( c - 1 ) > 0 ) {
+            input.val( n = c - 1 );
+        } else if ( a === 'plus' && ( c + 1 ) < 100 ) {
+            input.val( n = c + 1 );
+        }
+
+        if ( n > 0 ) {
+
+            basketRecalculate({
+                'item': input.data( 'item' ),
+                'count': n
+            })
+
         }
 
     });

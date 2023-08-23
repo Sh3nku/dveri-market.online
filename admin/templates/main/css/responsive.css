@@ -230,31 +230,6 @@
         display: block;
     }
 
-    .basket-wrapper {
-        padding: 32px 16px;
-    }
-
-    .basket-item {
-        position: relative;
-        padding: 16px 64px 16px 80px;
-        flex-wrap: wrap;
-    }
-
-    .basket-picture {
-        position: absolute;
-        left: 0;
-    }
-
-    .basket-description {
-        width: calc( 100% - 80px );
-        margin-bottom: 8px;
-    }
-
-    .basket-delete {
-        position: absolute;
-        right: 0;
-    }
-
 }
 
 @media ( max-width: 767px )  {
@@ -652,18 +627,6 @@
 
     .accessories-basket {
         min-width: 40px;
-    }
-
-    .basket-item {
-        padding: 0 32px 0 0;
-    }
-
-    .basket-picture {
-        position: static;
-    }
-
-    .basket-description {
-        margin-right: 0;
     }
 
     .basket-count {

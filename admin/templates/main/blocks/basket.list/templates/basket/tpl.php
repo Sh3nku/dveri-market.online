@@ -29,92 +29,85 @@
 
                 $preview_picture = $classFiles -> Resize( $arPicture['items'][0]['path'], 80, 100, false, 'basket_preview_' )?>
 
-                <div class="basket-item">
-
-                    <div class="basket-picture">
-                        <img src="<?=$preview_picture?>">
-                    </div>
-
-                    <div class="basket-description">
-
-                        <div class="basket-name">
-
-                            <?=$arItem['element']['name']?>
-                            <span class="basket-offer-name"><?=$arItem['element']['model'] ?? $arItem['offer']['name']?></span>
-
+                <div class="basket__item">
+                    <div class="basket__item-info">
+                        <div class="basket__item-picture">
+                            <img src="<?=$preview_picture?>">
                         </div>
 
-                        <?if ( is_array( $arItem['properties'] ) && !empty( $arItem['properties'] ) ) {?>
-
-                            <div class="basket-properties">
-
-                                <?$arProperties = array();
-
-                                foreach ( $arItem['properties'] as $arProperty ) {
-
-                                    $property_name = $arProperty['name'];
-                                    $arProperties[] = $arProperty['name'] . ': ' . $arProperty['values'][0]['name'];
-
-                                }
-
-                                echo implode( ', ', $arProperties )?>
-
+                        <div class="basket__item-description">
+                            <div class="basket__item-name">
+                                <?=$arItem['element']['name']?>
+                                <span class="basket__item-offer__name"><?=preg_replace( '/<br>/', ' ', $arItem['element']['model'] ?? $arItem['offer']['name'] )?></span>
                             </div>
 
-                        <?}?>
+                            <?if ( is_array( $arItem['properties'] ) && !empty( $arItem['properties'] ) ) {?>
+                                <div class="basket__item-properties">
 
+                                    <?$arProperties = array();
+
+                                    foreach ( $arItem['properties'] as $arProperty ) {
+                                        $property_name = $arProperty['name'];
+                                        $arProperties[] = $arProperty['name'] . ': ' . $arProperty['values'][0]['name'];
+                                    }
+
+                                    echo implode( ', ', $arProperties )?>
+
+                                </div>
+                            <?}?>
+                        </div>
                     </div>
 
-                    <?if ( $arItem['offer'] ) {
-                        $arPrice = $arItem['offer'];
-                    } else {
-                        $arPrice = $arItem['element'];
-                    }?>
+                    <div class="basket__item-prices">
+                        <div class="basket__item-prices__header">
+                            <div>Цена за шт.</div>
+                            <div>Кол-во</div>
+                            <div>Сумма</div>
+                        </div>
 
-                    <div class="basket-price basket-price-piece">
+                        <?$arPrice = !empty( $arItem['offer'] ) ? $arItem['offer'] : $arItem['element']?>
 
-                        <?if ( !$arPrice['discount'] ) {?>
+                        <div class="basket__item-prices__body">
+                            <div>
+                                <?if ( !empty( $arPrice['discount'] ) ) {?>
+                                    <div class="basket__item-prices__old"><?=$Functions -> NumberFormat( $arPrice['price'], 2, '.', ' ' )?>₽</div>
+                                <?}?>
 
-                            <div class="basket-price-base"><?=$Functions -> NumberFormat( $arPrice['discount_price'], 2, '.', ' ' )?>₽</div>
+                                <div class="basket__item-prices__base"><?=$Functions -> NumberFormat( $arPrice['discount_price'], 2, '.', ' ' )?>₽</div>
+                            </div>
 
-                        <?} else {?>
+                            <div>
+                                <div class="basket__item-count">
+                                    <div class="basket__item-count__minus | js-basket-button" data-action="minus"></div>
 
-                            <div class="basket-price-base basket-price-old"><?=$Functions -> NumberFormat( $arPrice['price'], 2, '.', ' ' )?>₽</div>
-                            <div class="basket-price-discount"><?=$Functions -> NumberFormat( $arPrice['discount_price'], 2, '.', ' ' )?>₽</div>
+                                    <input
+                                            class="basket__item-count__input"
+                                            type="text"
+                                            name="product_count"
+                                            value="<?=$arItem['count']?>"
+                                            data-item="<?=$arItem['id']?>"
+                                            readonly
+                                    >
 
-                        <?}?>
+                                    <div class="basket__item-count__plus | js-basket-button" data-action="plus"></div>
+                                </div>
+                            </div>
 
+                            <div>
+                                <?if ( !empty( $arPrice['discount'] ) ) {?>
+                                    <div data-item="<?=$arItem['id']?>"  class="basket__item-prices__old"><?=$Functions -> NumberFormat( $arPrice['price'] * $arItem['count'], 2, '.', ' ' )?>₽</div>
+                                <?}?>
+
+                                <div data-item="<?=$arItem['id']?>"  class="basket__item-prices__base"><?=$Functions -> NumberFormat( $arPrice['discount_price'] * $arItem['count'], 2, '.', ' ' )?>₽</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="basket-count">
-
-                        <div class="basket-button js-basket-button" data-action="minus"></div>
-                        <input class="basket-count-input" type="text" name="product_count" value="<?=$arItem['count']?>" data-item="<?=$arItem['id']?>">
-                        <div class="basket-button plus js-basket-button" data-action="plus"></div>
-
+                    <div class="basket__item-remove | basket-button-delete" data-item="<?=$arItem['id']?>">
+                        <svg class="_icon-close-modal">
+                            <use xlink:href="/admin/templates/main/images/icons/close-modal.svg#close-modal"></use>
+                        </svg>
                     </div>
-
-                    <div class="basket-price">
-
-                        <?if ( !$arPrice['discount'] ) {?>
-
-                            <div id="BasketPrice_<?=$arItem['id']?>" class="basket-price-base"><?=$Functions -> NumberFormat( $arPrice['discount_price'] * $arItem['count'], 2, '.', ' ' )?>₽</div>
-
-                        <?} else {?>
-
-                            <div id="BasketPrice_<?=$arItem['id']?>" class="basket-price-base basket-price-old"><?=$Functions -> NumberFormat( $arPrice['price'] * $arItem['count'], 2, '.', ' ' )?>₽</div>
-                            <div id="BasketDiscount_<?=$arItem['id']?>" class="basket-price-discount"><?=$Functions -> NumberFormat( $arPrice['discount_price'] * $arItem['count'], 2, '.', ' ' )?>₽</div>
-
-                        <?}?>
-
-                    </div>
-
-                    <div class="basket-delete">
-
-                        <div class="basket-button plus basket-button-delete" data-item="<?=$arItem['id']?>"></div>
-
-                    </div>
-
                 </div>
 
                 <?
@@ -158,7 +151,7 @@
 
         <div class="center">
             <h2>Ваша корзина пуста</h2>
-            <h3>Перейдите в каталог и выберите товар.</h3>
+            <h3>Перейдите в <a href="/katalog/">каталог</a> и выберите товар.</h3>
         </div>
 
     <?}
