@@ -244,10 +244,10 @@ a {
     overflow: hidden;
     transition: background-color .3s ease;
 }
-
 @media ( max-width: 575px ) {
     .button {
         width: 100%;
+        justify-content: center;
     }
 }
 
@@ -3139,6 +3139,12 @@ input[type=radio].product-property-radio:checked + label {
     background-size: 30px;
     padding: 13px 32px 13px 80px;
 }
+@media ( max-width: 576px ) {
+    .product-button-in-basket {
+        background-image: none;
+        padding: 13px 15px;
+    }
+}
 
 .product-button-in-basket:not(:last-child) {
     margin-right: 16px;
@@ -3147,10 +3153,12 @@ input[type=radio].product-property-radio:checked + label {
 .product-measurement-button {
     font-size: 15px;
     line-height: 16px;
+    width: 100%;
 }
 
 .product-measurement-button > span {
     cursor: pointer;
+    text-align: center;
 }
 
 .product-tabs {

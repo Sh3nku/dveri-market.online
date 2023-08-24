@@ -32,5 +32,3 @@ $arProperties = $arResult['properties']?>
         </div>
     </div>
 </form>
-
-<?$Functions -> Pre( $arResult );?>
