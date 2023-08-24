@@ -24,7 +24,7 @@ function basketRecalculate ( array ) {
                     $( '.basket__item-prices__base[data-item="' + answer.success.id + '"]' ).text( item.price );
                 }
 
-                $( '.header-basket-count' ).text( answer.success.basket_count );
+                $( '.js-basket-count' ).text( answer.success.basket_count );
                 $( '#BasketSumm' ).text( summ.price );
 
                 if ( summ.price !== summ.discount_price ) $( '#BasketSummWithDiscount' ).text( summ.discount_price )
@@ -567,7 +567,7 @@ $( function () {
 
                     }
 
-                    $( '.header-basket-count' ).text( basket_count );
+                    $( '.js-basket-count' ).text( basket_count );
 
                 }
 
