@@ -161,28 +161,32 @@
         && in_array( 1, \User\Group::GetGroupId( \User\User::GetId() ) )
     ) {?>
         <h2>Распечатать</h2>
-        <form action="/print/basket.php">
-            <div class="row">
-                <div class="col-s-6">
-                    <div class="form-label">Имя</div>
-                    <input class="grey" type="text" name="manager">
-                </div>
+        <div class="container">
+            <form action="/print/basket.php">
+                <div class="row">
+                    <div class="col-s-6">
+                        <div class="form-label">Имя</div>
+                        <input class="grey" type="text" name="manager">
+                    </div>
 
-                <div class="col-s-6">
-                    <div class="form-label">Контакт</div>
-                    <input class="grey" type="text" name="phone">
-                </div>
+                    <div class="col-s-6">
+                        <div class="form-label">Контакт</div>
+                        <input class="grey" type="text" name="phone">
+                    </div>
 
-                <div class="col-s-12">
-                    <div class="form-label">Комментарий</div>
-                    <textarea class="grey" name="comment"></textarea>
-                </div>
+                    <div class="col-s-12">
+                        <div class="form-label">Комментарий</div>
+                        <textarea class="grey" name="comment"></textarea>
+                    </div>
 
-                <div class="col-s-12">
-                    <input class="button" type="submit" value="Распечатать">
+                    <div class="col-s-12">
+                        <input class="button" type="submit" value="Распечатать">
+                    </div>
+
+                    <div class="col-s-12"></div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     <?}?>
 
 </div>
