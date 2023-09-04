@@ -32,6 +32,9 @@ if ( !empty( $_GET['section_parent'] ) && !empty( $_GET['section_code'] ) ) {
         );
     }
 
-    if ( empty( $rsSection ) ) $MAIN::Show404();
+    if ( empty( $rsSection ) && !$mysql -> query( 'SELECT `id` FROM `i_tag_page` WHERE `url_chpu` = ?s', ( ( str_contains( $_SERVER['REQUEST_URI'], '?' ) ) ? strstr( $_SERVER['REQUEST_URI'], '?', true ) : $_SERVER['REQUEST_URI'] ) ) -> num_rows ) {
+        $MAIN::Show404();
+    }
+
 
 }
