@@ -199,7 +199,7 @@ if (
             $arOrder['offer_sort'] = 'asc';
             $arOrder['offer_id'] = 'asc';
 
-            if ( !empty( $arTagPage ) ) {
+            if ( !empty( $arTagPage ) && $_GET['tagPage'] !== 'N' ) {
 
                 unset($arFilter['section_code']);
 
@@ -302,6 +302,9 @@ if (
             }
 
             //$MAIN::Show404();
+
+            //$Functions -> Pre( $_GET );
+            //$Functions -> Pre( $arFilter );
 
             $Includes::Template(
                 'main:catalog.offers.list',

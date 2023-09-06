@@ -17,7 +17,7 @@ function Filter () {
     }
 
     $.ajax({
-        url: location.pathname + location.search,
+        url: location.pathname + location.search + ( location.search ? '&' : '?' ) + 'tagPage=N',
         type: 'GET',
         cache: false,
         dataType: 'html',
