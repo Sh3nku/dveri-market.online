@@ -145,6 +145,17 @@ function endProgressBar () {
 
 }
 
+function catalogTagMoreToggle() {
+
+    if ( $( '.catalog-tag__list > .buttons' ).outerHeight() < 80 ) {
+        $( '.catalog-tag__more' ).hide();
+        //$( '.catalog-tag__list' ).removeClass( '_short' );
+    } else {
+        $( '.catalog-tag__more' ).show();
+        //$( '.catalog-tag__list' ).addClass( '_short' );
+    }
+}
+
 $( function () {
 
     document.querySelectorAll( 'input[type=tel]' ).forEach( e => IMask( e, {
@@ -481,17 +492,6 @@ $( function () {
     });
 
     /* ----- Каталог ----- */
-
-    function catalogTagMoreToggle() {
-
-        if ( $( '.catalog-tag__list > .buttons' ).outerHeight() < 80 ) {
-            $( '.catalog-tag__more' ).hide();
-            //$( '.catalog-tag__list' ).removeClass( '_short' );
-        } else {
-            $( '.catalog-tag__more' ).show();
-            //$( '.catalog-tag__list' ).addClass( '_short' );
-        }
-    }
 
     catalogTagMoreToggle();
 
