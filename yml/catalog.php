@@ -1,4 +1,4 @@
-<?php require '/var/www/u1603621/data/www/dev.dveri-market.online/admin/core/core.php';
+<?php require $_SERVER['DOCUMENT_ROOT'] . '/admin/core/core.php';
 
 define( 'LOCAL_DOMAIN', 'https://dveri-market.online' );
 
@@ -103,7 +103,7 @@ $html .= '</yml_catalog>';
 
 //header( 'Content-Type: text/xml; charset=utf-8' );
 
-$fd = fopen( '/var/www/u1603621/data/www/dev.dveri-market.online/yml/catalog.xml', 'w' );
+$fd = fopen( $_SERVER['DOCUMENT_ROOT'] . '/yml/catalog.xml', 'w' );
 fwrite( $fd, $html );
 fclose( $fd );
 
