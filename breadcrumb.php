@@ -84,11 +84,6 @@ if ( preg_match( '/katalog/', $_SERVER['REQUEST_URI'] ) ) {
 
 if ( preg_match( '/furnitura/', $_SERVER['REQUEST_URI'] ) ) {
 
-    $arBreadCrumbs[] = array(
-        'name' => 'Фурнитура',
-        'path' => '/furnitura/'
-    );
-
     $parent_code = $_GET['section_parent'] ?? $_GET['section_code'];
 
     if ( !empty( $_GET['section_code'] ) ) {

@@ -74,9 +74,11 @@ if ( $arResult['items'] ) {
             <div class="menu__main">
                 <div class="menu__first-level small-scroll">
                     <ul class="menu__first-level__ul">
-                        <?foreach ( $arItems as $arItem ) {?>
+                        <?foreach ( $arItems as $arItem ) {
+                            $catalog = $arItem['iblock_id'] == 27 ? '/furnitura/' : '/katalog/' . $arItem['code'] . '/'?>
+
                             <li class="menu__first-level__li">
-                                <a itemprop="url" class="menu__first-level__a | js-menu-choice <?=empty( $arItem['children'] ) ? 'js-no' : ''?>" href="/katalog/<?=$arItem['code']?>/" data-menu_id="<?=$arItem['id']?>">
+                                <a itemprop="url" class="menu__first-level__a | js-menu-choice <?=empty( $arItem['children'] ) ? 'js-no' : ''?>" href="<?=$catalog?>" data-menu_id="<?=$arItem['id']?>">
 
                                     <?$iconId = 0;
 
@@ -137,7 +139,9 @@ if ( $arResult['items'] ) {
                 </div>
             </div>
             <div class="menu__second small-scroll">
-                <?foreach ( $arItems as $key => $arItem ) {?>
+                <?foreach ( $arItems as $key => $arItem ) {
+                    $catalog = $arItem['iblock_id'] == 27 ? '/furnitura/' : '/katalog/' . $arItem['code'] . '/'?>
+
                     <div class="menu__second-level<?=$key == 0 ? ' _active' : ''?>" data-menu_target="<?=$arItem['id']?>">
                         <div class="menu__subtitle">
                             <div class="menu__subtitle__svg-arrow | js-menu-back">
@@ -150,11 +154,11 @@ if ( $arResult['items'] ) {
 
                         <?if ( !empty( $arItem['children'] ) ) {?>
                             <ul class="menu__second-level__ul small-scroll">
-                                <li class="menu__second-level__li"><a itemprop="url" class="menu__second-level__a" href="/katalog/<?=$arItem['code']?>/"><span itemprop="name">перейти в раздел "<?=$arItem['name']?>"</span></a></li>
+                                <li class="menu__second-level__li"><a itemprop="url" class="menu__second-level__a" href="<?=$catalog?>"><span itemprop="name">перейти в раздел "<?=$arItem['name']?>"</span></a></li>
 
                                 <?foreach ( $arItem['children'] as $arChildren ) {?>
                                     <li class="menu__second-level__li">
-                                        <a itemprop="url" class="menu__second-level__a<?=!empty( $arPages[$arChildren['id']] ) ? ' | js-menu-choice' : ''?>" href="/katalog/<?=$arItem['code']?>/<?=$arChildren['code']?>/" data-menu_id="<?=$arChildren['id']?>">
+                                        <a itemprop="url" class="menu__second-level__a<?=!empty( $arPages[$arChildren['id']] ) ? ' | js-menu-choice' : ''?>" href="<?=$catalog?><?=$arChildren['code']?>/" data-menu_id="<?=$arChildren['id']?>">
                                             <span itemprop="name"><?=$arChildren['name']?></span>
 
                                             <?if ( !empty( $arPages[$arChildren['id']] ) ) {?>
