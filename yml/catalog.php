@@ -91,7 +91,7 @@ foreach ( $arProducts as $arProduct ) {
 
     $html .= '<currencyId>RUB</currencyId>';
     $html .= '<categoryId>' . $section_id . '</categoryId>';
-    $html .= '<picture>' . $arProduct['product']['picture']['path'] . '</picture>';
+    $html .= '<picture>' . LOCAL_DOMAIN . $arProduct['product']['picture']['path'] . '</picture>';
     $html .= '<description><![CDATA[' . stripslashes($arProduct['product']['description']) . ']]></description>';
 
     $html .= '</offer>';
