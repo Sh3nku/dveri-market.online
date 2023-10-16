@@ -47,8 +47,6 @@ if ( $arResult['items'] ) {
         array( 'sort' => 'asc' )
     );
 
-    $Functions -> Pre( $arTagPages );
-
     $arPages = array();
 
     foreach ( $arTagPages['items'] as $arTagPage ) {
