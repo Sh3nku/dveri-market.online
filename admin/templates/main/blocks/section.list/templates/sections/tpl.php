@@ -41,9 +41,13 @@ if ( $arResult['items'] ) {
         array(
             'iblock_id' => 32
         ),
-        array(),
+        array(
+            'count_on_page' => 9999
+        ),
         array( 'sort' => 'asc' )
     );
+
+    $Functions -> Pre( $arTagPages );
 
     $arPages = array();
 
@@ -63,8 +67,6 @@ if ( $arResult['items'] ) {
         }
 
     }
-
-    //$Functions -> Pre( $arPages );
 
     //$Functions -> Pre( $arItems );
     //echo count( $arItems )?>
