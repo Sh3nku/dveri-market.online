@@ -18,7 +18,13 @@
 
             <div class="copyright-body">
 
-                <div class="copyright-link"><a href="/privacy-policy.php">Политика конфиденциальности</a></div>
+                <?$Includes::Template(
+                    'main:menu',
+                    'bottom',
+                    array(
+                        'type' => 'bottom'
+                    )
+                )?>
 
                 <div class="copyright-text">© <?=date( 'Y' )?>. Интернет магазин дверей "Двери маркет". Все права защищены.</div>
 

@@ -45,7 +45,7 @@ $ASSET -> AddJs( TPL . '/js/main.js' );
 
 <body class="js-body-no-transition">
 
-<?//if ( $User -> IsAuthorized() ) $Includes::Panel()?>
+<?if ( $User -> IsAuthorized() ) $Includes::Panel()?>
 
 <header>
     <div class="container">

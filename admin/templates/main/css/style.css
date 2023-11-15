@@ -1867,6 +1867,32 @@ main ul:not([class]) li:before {
     top: 10px;
 }
 
+main table:not([class]) {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main table:not([class]) th {
+    background-color: #DDE5F0;
+    border: 1px solid #F4F7FB;
+    padding: 16px;
+}
+
+main table:not([class]) td {
+    border: 1px solid #DDE5F0;
+    padding: 16px;
+}
+
+main .yellow-paragraph {
+    background-color: #DCA33B;
+    padding: 32px;
+}
+@media ( max-width: 767px ) {
+    main .yellow-paragraph {
+        padding: 16px;
+    }
+}
+
 .section {
     margin-bottom: 64px;
 }
@@ -3799,13 +3825,6 @@ footer {
     color: #ffffff;
     padding: 64px 0;
 }
-
-@media ( max-width: 767px ) {
-    footer {
-        margin-top: 32px;
-    }
-}
-
 @media ( max-width: 767px ) {
     footer {
         margin-top: 16px;
@@ -3813,17 +3832,68 @@ footer {
     }
 }
 
+footer a {
+    color: #FFF720;
+    background-image: linear-gradient( #FFF720, #FFF720 );
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0 1px;
+    transition: background-size .25s ease,opacity .25s ease;
+}
+
+footer a:hover {
+    background-size: 100% 1px;
+}
+
 .footer {
     margin-bottom: 32px;
+}
+@media ( max-width: 767px ) {
+    .footer {
+        margin-bottom: 16px;
+    }
+}
+
+.bottom-menu {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+@media ( max-width: 767px ) {
+    .bottom-menu {
+        margin-bottom: 16px;
+        flex-direction: column;
+    }
+}
+
+.bottom-menu__li:not( :last-child ) {
+    margin-right: 16px;
+}
+@media ( max-width: 767px ) {
+    .bottom-menu__li:not( :last-child ) {
+        margin: 0 0 8px;
+    }
 }
 
 .copyright {
     display: flex;
 }
 
+@media ( max-width: 767px ) {
+    .copyright {
+        flex-direction: column-reverse;
+    }
+}
+
 .copyright-logo {
     margin-right: 16px;
     flex: 0 0 110px;
+}
+@media ( max-width: 767px ) {
+    .copyright-logo {
+        flex: 0 0 auto;
+        margin: 16px 0 0;
+    }
 }
 
 .copyright-logo img {
@@ -3834,15 +3904,6 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.copyright-link > a {
-    color: #FFF720;
-    text-decoration: underline;
-}
-
-.copyright-link > a:hover {
-    text-decoration: none;
 }
 
 /* ------ Общие стили ------ */
