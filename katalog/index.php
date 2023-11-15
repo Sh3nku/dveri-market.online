@@ -224,13 +224,13 @@ if (
 
             $section_id = 0;
 
-            if ( empty( $arCurrentPage['items'] ) && !empty( $_GET['section_parent'] ) ) {
+            if ( empty( $arCurrentPage['items'] ) && ( !empty( $_GET['section_parent'] ) || !empty( $_GET['section_code'] ) ) ) {
 
                 $arCurrentSection = $Content -> GetSectionList(
                     array( 'id' ),
                     array(
                         'iblock_id' => 29,
-                        'code' => $_GET['section_parent']
+                        'code' => $_GET['section_parent'] ?? $_GET['section_code']
                     ),
                     array( 'limit' => 1 )
                 );
