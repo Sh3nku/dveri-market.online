@@ -1,0 +1,1 @@
+<?require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/header.php';echo $PAGE_TEXT;require_once $_SERVER['DOCUMENT_ROOT'] . '/admin/footer.php';
