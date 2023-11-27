@@ -79,4 +79,4 @@ if ( $arResult['items'] ) {
 
 <?}
 
-$Functions -> Pre( $arResult );
+//$Functions -> Pre( $arResult );
