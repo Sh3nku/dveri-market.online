@@ -341,13 +341,16 @@ if (
 
         </div>
 
-        <? // Вывод описание раздела
+        <?
+        /**
+         * Вывод описание раздела
+         */
 
         $detail_text = $arResSectionParent[0]['description'];
 
         if ( !empty( $arTagPage ) ) $detail_text = $arTagPage['text'];
 
-        if ( !empty( $detail_text ) ) {?>
+        if ( !empty( $detail_text ) && ( !isset( $_GET['page'] ) || $_GET['page'] == 1 ) ) {?>
 
             <div class="catalog-text"><?=$detail_text?></div>
 

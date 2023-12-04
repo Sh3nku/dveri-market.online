@@ -3009,6 +3009,7 @@ input[type=submit].filter-button {
 .product {
     margin-bottom: 32px;
     min-width: 250px;
+    flex-grow: 1;
 }
 
 .product h1 {
