@@ -22,15 +22,28 @@ if ( !empty( $arResult['items'] ) ) {
 
     $title = '';
     $description = '';
-    $page_title = '';
 
     if ( !empty( $arSeo['title'] ) ) $title = $arSeo['title'];
     if ( !empty( $arSeo['description'] ) ) $description = $arSeo['description'];
-    if ( !empty( $arSeo['page_title'] ) ) $page_title = $arSeo['page_title'];
+
+    $section_name = '';
 
     if ( preg_match( '/mezhkomnatnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
-        if ( empty( $title ) ) $title = 'Межкомнатная дверь ' . $arItem['name'] . ' ' . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' купить в Санкт-Петербурге | «Двери Маркет»';
-        if ( empty( $description ) ) $description = 'Интернет-магазин «Двери Маркет» предлагает купить дверь ' . $arItem['name'] . ' ' . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . '. Доставка и установка. ☎ +7 (981) 718-01-08';
+        $section_name = 'Межкомнатная дверь';
+        $section_name_2 = 'межкомнатную';
+    } else if ( preg_match( '/vhodnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $section_name = 'Дверь входная';
+        $section_name_2 = 'входную';
+    }
+
+    $page_title = !empty( $arSeo['page_title'] ) ? $arSeo['page_title'] : ( !empty( $section_name ) ? $section_name . ' ' : '' ) . $arItem['name'] . ' ' . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) ;
+
+    if (
+        preg_match( '/mezhkomnatnye-dveri/', $_SERVER['REQUEST_URI'] )
+        || preg_match( '/vhodnye-dveri/', $_SERVER['REQUEST_URI'] )
+    ) {
+        if ( empty( $title ) ) $title = ( !empty( $section_name ) ? $section_name . ' ' : '' ) . $arItem['name'] . ' ' . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' купить в Санкт-Петербурге | «Двери Маркет»';
+        if ( empty( $description ) ) $description = 'Интернет-магазин «Двери Маркет» предлагает купить ' . ( !empty( $section_name_2 ) ? $section_name_2 . ' дверь ' : '' ) . $arItem['name'] . ' ' . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . '. Доставка и установка. ☎ +7 (981) 718-01-08';
     } else {
         if ( empty( $title ) ) $title = $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' купить в Санкт-Петербурге | Интернет-магазин «Двери Маркет»';
         if ( empty( $description ) ) $description = $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' ✏ Широкий выбор ✏ Доступные цены! ☎ +7 (981) 718-01-08 Заказывайте в «Двери Маркет»! ➠';
@@ -84,7 +97,7 @@ if ( !empty( $arResult['items'] ) ) {
 
         <div class="product">
 
-            <h1 itemprop="name"><?=( ( !empty( $page_title ) ) ? $page_title : $arItem['name'] )?></h1>
+            <h1 itemprop="name"><?=$page_title?></h1>
 
             <div class="product-offer-name js-name"><?=$arItem['model']?></div>
 
