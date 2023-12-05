@@ -17,6 +17,10 @@ if ( !empty( $_GET['q'] ) ) {
     $arFilter['%name'] = $_GET['q'];
 }
 
+if ( !empty( $_GET['page'] ) ) {
+    $page = $_GET['page'];
+}
+
 $Includes::Template(
     'main:catalog.offers.list',
     'catalog',
@@ -38,8 +42,8 @@ $Includes::Template(
         ),
         'filter' => $arFilter,
         'nav' => array(
-            'page' => 1,
-            'count_on_page' => 20
+            'page' => $page,
+            'count_on_page' => 60
         ),
         'order' => array(),
         'params' => array(
