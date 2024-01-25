@@ -7,7 +7,7 @@ if ( $arResult['items'] ) {
     $arResFurnitura = $Content -> GetSectionList(
         array(),
         array(
-            'iblock_id' => 27,
+            'iblock_id' => 33,
             'active' => 1
         ),
         array(),

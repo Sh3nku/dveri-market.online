@@ -185,7 +185,8 @@ $( function () {
 
     });
 
-    $( document ).on( 'click', '.js-in-basket', function () {
+    $( document ).on( 'click', '.js-in-basket', function ( e ) {
+        e.preventDefault();
 
         let array = [],
             button = $( this );
@@ -219,8 +220,6 @@ $( function () {
 
             }
         })
-
-        return false;
 
     });
 

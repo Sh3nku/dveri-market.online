@@ -90,20 +90,29 @@ if ( isset( $_POST['InBasket'] ) ) {
         $iblock_offers_id = 30;
 
         if ( $arResult['type'] === 'furnitura' ) {
-            $iblock_id = 27;
-            $iblock_offers_id = 28;
-        }
+            $iblock_id = 33;
 
-        $arProduct = $Content -> GetItemWithOffers(
-            array(
-                'id'
-            ),
-            array(
-                'iblock_id' => $iblock_id,
-                'code' => $arResult['code'],
-                'offer_id' => $arResult['offer']
-            )
-        );
+            $arProduct = $Content -> GetList(
+                array(
+                    'id'
+                ),
+                array(
+                    'iblock_id' => $iblock_id,
+                    'code' => $arResult['code']
+                )
+            );
+        } else {
+            $arProduct = $Content -> GetItemWithOffers(
+                array(
+                    'id'
+                ),
+                array(
+                    'iblock_id' => $iblock_id,
+                    'code' => $arResult['code'],
+                    'offer_id' => $arResult['offer']
+                )
+            );
+        }
 
         $arProperties = array();
 
@@ -171,8 +180,7 @@ if ( isset( $_POST['OpenBasket'] ) ) {
                 29 => array( 'name', 'model', 'picture' ),
                 30 => array( 'name' ),
                 21 => array( 'name', 'picture' ),
-                27 => array( 'name' ),
-                28 => array( 'name', 'picture' )
+                33 => array( 'name', 'picture' )
             ),
             'filter' => array(
                 'cookie' => $_COOKIE['basket']

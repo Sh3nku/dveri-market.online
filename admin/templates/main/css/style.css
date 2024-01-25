@@ -2583,7 +2583,11 @@ input[type=submit].filter-button {
 
 .catalog-item {
     position: relative;
-    height: 381px;
+    height: 368px;
+}
+
+.catalog-item._furnitura {
+    height: 323px;
 }
 
 .catalog-item.is-example {
@@ -2899,6 +2903,10 @@ input[type=submit].filter-button {
 }
 
 /* ----- Пагинация ----- */
+
+.pagination {
+    margin-top: 32px;
+}
 
 .pagination-ul {
     display: flex;

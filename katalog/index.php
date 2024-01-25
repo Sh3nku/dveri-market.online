@@ -375,6 +375,7 @@ if (
                     'description',
                     'picture',
                     'picture_2',
+                    'color',
                     'offer_price',
                     'offer_discount',
                     'offer_discount_price',

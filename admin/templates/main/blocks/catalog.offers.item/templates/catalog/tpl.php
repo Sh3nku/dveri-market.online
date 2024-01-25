@@ -18,35 +18,57 @@ if ( !empty( $arResult['items'] ) ) {
         )
     )['items'][0];
 
-    //if ( $_SESSION['user']['id'] == 1 ) $Functions -> Pre( $arResult['items'] );
+    //$Functions -> Pre( $arResult['items'] );
 
     $title = '';
     $description = '';
+    $color = $arItem['color'][0]['name'];
+    $subsection_name = $arItem['sections'][0]['children'][0]['name'];
 
-    if ( !empty( $arSeo['title'] ) ) $title = $arSeo['title'];
-    if ( !empty( $arSeo['description'] ) ) $description = $arSeo['description'];
-
-    $section_name = '';
-
-    if ( preg_match( '/mezhkomnatnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
-        $section_name = 'Межкомнатная дверь';
-        $section_name_2 = 'межкомнатную';
+    if ( !empty( $arSeo['page_title'] ) ) {
+        $page_title = $arSeo['page_title'];
     } else if ( preg_match( '/vhodnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
-        $section_name = 'Дверь входная';
-        $section_name_2 = 'входную';
+        $page_title = 'Дверь ' . $arItem['name'] . ( !empty( $color ) ? ' ' . $color : '' );
+    } else if ( preg_match( '/protivopozharnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $page_title = 'Дверь противопожарная ' . $arItem['name'];
+    } else if ( preg_match( '/mayatnikovye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $page_title = 'Дверь маятниковая Бар ' . $arItem['name'];
+    } else if ( preg_match( '/dveri-na-zakaz/', $_SERVER['REQUEST_URI'] ) ) {
+        $page_title = 'Дверь ' . $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' );
+    } else {
+        $page_title = 'Дверь ' . $arItem['name'] . ( !empty( $color ) ? ' ' . $color : '' );
     }
 
-    $page_title = !empty( $arSeo['page_title'] ) ? $arSeo['page_title'] : ( !empty( $section_name ) ? $section_name . ' ' : '' ) . $arItem['name'] . ' ' . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) ;
-
-    if (
-        preg_match( '/mezhkomnatnye-dveri/', $_SERVER['REQUEST_URI'] )
-        || preg_match( '/vhodnye-dveri/', $_SERVER['REQUEST_URI'] )
-    ) {
-        if ( empty( $title ) ) $title = ( !empty( $section_name ) ? $section_name . ' ' : '' ) . $arItem['name'] . ' ' . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' купить в Санкт-Петербурге | «Двери Маркет»';
-        if ( empty( $description ) ) $description = 'Интернет-магазин «Двери Маркет» предлагает купить ' . ( !empty( $section_name_2 ) ? $section_name_2 . ' дверь ' : '' ) . $arItem['name'] . ' ' . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . '. Доставка и установка. ☎ +7 (981) 718-01-08';
+    if ( !empty( $arSeo['title'] ) ) {
+        $title = $arSeo['title'];
+    } else if ( preg_match( '/mezhkomnatnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $title = 'Дверь межкомнатная ' . $arItem['name'] . ( !empty( $color ) ? ' ' . $color : '' ) . ( !empty( $subsection_name ) ? ' ' . $subsection_name : '' ) . ' купить в Санкт-Петербурге';
+    } else if ( preg_match( '/vhodnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $title = 'Дверь входная ' . $arItem['name'] . ( !empty( $color ) ? ' ' . $color : '' ) . ' купить в Санкт-Петербурге';
+    } else if ( preg_match( '/protivopozharnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $title = 'Дверь противопожарная ' . $arItem['name'] . ' купить в Санкт-Петербурге';
+    } else if ( preg_match( '/mayatnikovye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $title = 'Дверь маятниковая ' . $arItem['name'] . ' купить в Санкт-Петербурге | Интернет-магазин «Двери-Маркет»';
+    } else if ( preg_match( '/dveri-na-zakaz/', $_SERVER['REQUEST_URI'] ) ) {
+        $title = 'Дверь межкомнатная ' . $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ( !empty( $subsection_name ) ? ', ' . $subsection_name : '' ) . ' купить в Санкт-Петербурге';
     } else {
-        if ( empty( $title ) ) $title = $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' купить в Санкт-Петербурге | Интернет-магазин «Двери Маркет»';
-        if ( empty( $description ) ) $description = $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ' ✏ Широкий выбор ✏ Доступные цены! ☎ +7 (981) 718-01-08 Заказывайте в «Двери Маркет»! ➠';
+        $title = 'Дверь ' . $arItem['name'] . ' купить в Санкт-Петербурге по цене ' . $arOffer['discount_price'] . ' руб';
+    }
+
+    if ( !empty( $arSeo['description'] ) ) {
+        $description = $arSeo['description'];
+    } else if ( preg_match( '/mezhkomnatnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $description = 'Межкомнатная дверь ' . $arItem['name'] . ( !empty( $subsection_name ) ? ' ' . $subsection_name : '' ) . ( !empty( $color ) ? ', цвет ' . $color . '.' : '' ) . ' ✦ Выгодная цена ✦ Качественные материалы ✦ Доставка и установка. ☎ +7 (981) 718-01-08';
+    } else if ( preg_match( '/vhodnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $description = 'Входная дверь ' . $arItem['name'] . ( !empty( $color ) ? ', цвет ' . $color . '.' : '' ) . ' ✦ Выгодная цена ✦ Качественные материалы ✦ Доставка и установка. ☎ +7 (981) 718-01-09';
+    } else if ( preg_match( '/protivopozharnye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $description = 'Противопожарная дверь ' . $arItem['name'] . ' ✦ Выгодная цена ✦ Высокое качество ✦ Доставка и установка. ☎ +7 (981) 718-01-09';
+    } else if ( preg_match( '/mayatnikovye-dveri/', $_SERVER['REQUEST_URI'] ) ) {
+        $description = 'Маятниковая межкомнатная дверь ' . $arItem['name'] . ' ✦ Изготавливаем любые размеры ✦ Выгодная цена ✦ Качество ✦ Доставка и установка. ☎ +7 (981) 718-01-10';
+    } else if ( preg_match( '/dveri-na-zakaz/', $_SERVER['REQUEST_URI'] ) ) {
+        $description = 'Межкомнатная дверь ' . $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ( !empty( $subsection_name ) ? ', ' . $subsection_name : '' ) . ' ✦ Изготовление на заказ ✦ Выгодная цена ✦ Доставка и установка. ☎ +7 (981) 718-01-09';
+    }  else {
+        $description = 'Дверь ' . $arItem['name'] . ' ✦ Выгодная цена ✦ Качественные материалы ☎ +7 (981) 718-01-10 - покупайте в интернет-магазине «Двери Маркет»!';
     }
 
     $MAIN -> SetTitle( $title );
@@ -170,6 +192,8 @@ if ( !empty( $arResult['items'] ) ) {
                         'id' => $arItem['id']
                     )
                 );
+
+                //$Functions -> Pre( $arOffersProperties );
 
                 foreach ( $arOffersProperties['items'] as $key => $arProperty ) {?>
 
