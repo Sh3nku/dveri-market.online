@@ -24,6 +24,7 @@ if ( !empty( $arResult['items'] ) ) {
     $description = '';
     $color = $arItem['color'][0]['name'];
     $subsection_name = $arItem['sections'][0]['children'][0]['name'];
+    $isNotDoor = preg_match( '/napolnyj-plintus/', $_SERVER['REQUEST_URI'] );
 
     if ( !empty( $arSeo['page_title'] ) ) {
         $page_title = $arSeo['page_title'];
@@ -36,7 +37,7 @@ if ( !empty( $arResult['items'] ) ) {
     } else if ( preg_match( '/dveri-na-zakaz/', $_SERVER['REQUEST_URI'] ) ) {
         $page_title = 'Дверь ' . $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' );
     } else {
-        $page_title = 'Дверь ' . $arItem['name'] . ( !empty( $color ) ? ' ' . $color : '' );
+        $page_title = ( !$isNotDoor ? 'Дверь ' : '' ) . $arItem['name'] . ( !empty( $color ) ? ' ' . $color : '' );
     }
 
     if ( !empty( $arSeo['title'] ) ) {
@@ -52,7 +53,7 @@ if ( !empty( $arResult['items'] ) ) {
     } else if ( preg_match( '/dveri-na-zakaz/', $_SERVER['REQUEST_URI'] ) ) {
         $title = 'Дверь межкомнатная ' . $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ( !empty( $subsection_name ) ? ', ' . $subsection_name : '' ) . ' купить в Санкт-Петербурге';
     } else {
-        $title = 'Дверь ' . $arItem['name'] . ' купить в Санкт-Петербурге по цене ' . $arOffer['discount_price'] . ' руб';
+        $title = ( !$isNotDoor ? 'Дверь ' : '' ) . $arItem['name'] . ' купить в Санкт-Петербурге по цене ' . $arOffer['discount_price'] . ' руб';
     }
 
     if ( !empty( $arSeo['description'] ) ) {
@@ -68,7 +69,7 @@ if ( !empty( $arResult['items'] ) ) {
     } else if ( preg_match( '/dveri-na-zakaz/', $_SERVER['REQUEST_URI'] ) ) {
         $description = 'Межкомнатная дверь ' . $arItem['name'] . ( !empty( $arItem['model'] ) ? ' ' . $arItem['model'] : '' ) . ( !empty( $subsection_name ) ? ', ' . $subsection_name : '' ) . ' ✦ Изготовление на заказ ✦ Выгодная цена ✦ Доставка и установка. ☎ +7 (981) 718-01-09';
     }  else {
-        $description = 'Дверь ' . $arItem['name'] . ' ✦ Выгодная цена ✦ Качественные материалы ☎ +7 (981) 718-01-10 - покупайте в интернет-магазине «Двери Маркет»!';
+        $description = ( !$isNotDoor ? 'Дверь ' : '' ) . $arItem['name'] . ' ✦ Выгодная цена ✦ Качественные материалы ☎ +7 (981) 718-01-10 - покупайте в интернет-магазине «Двери Маркет»!';
     }
 
     $MAIN -> SetTitle( $title );
